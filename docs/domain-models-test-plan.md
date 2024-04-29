@@ -167,3 +167,6 @@ So that I know whether the withdrawal worked.
 - [ ] Should print message stating invalid amount when non-number passed
 - [ ] Should print message stating invalid amount when NaN passed
 - [ ] Should print message stating invalid amount when undefined passed
+
+## Kanban Board
+![image](../img/kanban.jpg)
