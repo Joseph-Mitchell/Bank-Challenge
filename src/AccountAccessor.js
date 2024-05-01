@@ -11,8 +11,6 @@ export default class AccountAccessor {
     }
 
     static setAccessedAccount(accountNumber) {
-        AccountAccessor.#accessedAccount = AccountAccessor.#accounts.find(
-            (a) => a.getAccountNumber() === accountNumber
-        );
+        AccountAccessor.#accessedAccount = AccountAccessor.#accounts.find((a) => a.getAccountNumber() === accountNumber);
     }
 }
