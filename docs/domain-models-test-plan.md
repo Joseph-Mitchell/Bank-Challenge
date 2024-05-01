@@ -46,10 +46,10 @@ So that I know whether the withdrawal worked.
 
 ### User Story 1
 
-| Objects         | Properties                                            | Messages                    | Output |
-| --------------- | ----------------------------------------------------- | --------------------------- | ------ |
-| Account         | accountNumber @Number                                 |                             |        |
-| AccountAccessor | accounts @Array[@Account]<br>accessedAccount @Account | setAccessedAccount(@Number) | @Void  |
+| Objects         | Properties                                            | Messages                                            | Output            |
+| --------------- | ----------------------------------------------------- | --------------------------------------------------- | ----------------- |
+| Account         | accountNumber @Number                                 |                                                     |                   |
+| AccountAccessor | accounts @Array[@Account]<br>accessedAccount @Account | setAccessedAccount(@Number)<br>getAccessedAccount() | @Void<br>@Account |
 
 ### User Story 2
 
