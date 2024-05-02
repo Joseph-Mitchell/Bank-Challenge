@@ -2,9 +2,11 @@ import AccountAccessor from "../src/AccountAccessor.js";
 
 describe("AccountAccessor:", () => {
     describe("Inputs to setAccessedAccount():", () => {
-        let testAccounts = [];
+        let testAccounts, testAccountNumber;
 
         beforeEach(() => {
+            testAccounts = [];
+
             for (let i = 0; i < 9; i++)
                 testAccounts.push(
                     jasmine.createSpyObj("testAccount" + i, {
@@ -14,7 +16,8 @@ describe("AccountAccessor:", () => {
         });
 
         afterEach(() => {
-            testAccounts = [];
+            testAccounts = undefined;
+            testAccountNumber = undefined;
         });
 
         it("Should set accessedAccount to the correct Account from accounts when existing accountNumber passed", () => {
@@ -26,71 +29,65 @@ describe("AccountAccessor:", () => {
             );
             AccountAccessor.setAccounts(testAccounts);
 
-            let testAccountNumber = 12345678;
+            testAccountNumber = 12345678;
 
             //Act
             AccountAccessor.setAccessedAccount(testAccountNumber);
 
             //Assert
-            let expected = 12345678;
-            let actual = AccountAccessor.getAccessedAccount().getAccountNumber();
-            expect(actual).toBe(expected);
+            expect(AccountAccessor.getAccessedAccount().getAccountNumber()).toBe(testAccountNumber);
         });
 
         it("Should not change accessedAccount when non-existing accountNumber passed", () => {
             //Arrange
             AccountAccessor.setAccounts(testAccounts);
 
-            let testAccountNumber = 12345678;
+            testAccountNumber = 12345678;
 
             //Act
             AccountAccessor.setAccessedAccount(testAccountNumber);
 
             //Assert
-            let actual = AccountAccessor.getAccessedAccount();
-            expect(actual).toBeUndefined();
+            expect(AccountAccessor.getAccessedAccount()).toBeUndefined();
         });
 
         it("Should not change accessedAccount when non-number type passed", () => {
             //Arrange
             AccountAccessor.setAccounts(testAccounts);
 
-            let testAccountNumber = "12345678";
+            testAccountNumber = "12345678";
 
             //Act
             AccountAccessor.setAccessedAccount(testAccountNumber);
 
             //Assert
-            let actual = AccountAccessor.getAccessedAccount();
-            expect(actual).toBeUndefined();
+            expect(AccountAccessor.getAccessedAccount()).toBeUndefined();
         });
 
         it("Should not change accessedAccount when NaN passed", () => {
             //Arrange
             AccountAccessor.setAccounts(testAccounts);
 
-            let testAccountNumber = NaN;
+            testAccountNumber = NaN;
 
             //Act
             AccountAccessor.setAccessedAccount(testAccountNumber);
 
             //Assert
-            let actual = AccountAccessor.getAccessedAccount();
-            expect(actual).toBeUndefined();
+            expect(AccountAccessor.getAccessedAccount()).toBeUndefined();
         });
 
         it("Should not change accessedAccount when undefined passed", () => {
             //Arrange
             AccountAccessor.setAccounts(testAccounts);
 
-            let testAccountNumber = undefined;
+            testAccountNumber = undefined;
 
             //Act
             AccountAccessor.setAccessedAccount(testAccountNumber);
 
             //Assert
-            let actual = AccountAccessor.getAccessedAccount();
-            expect(actual).toBeUndefined();
+            expect(AccountAccessor.getAccessedAccount()).toBeUndefined();
         });
     });
 });

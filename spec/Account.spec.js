@@ -2,7 +2,7 @@ import Account from "../src/Account.js";
 
 describe("Account: ", () => {
     describe("Inputs to addCredit(): ", () => {
-        let testAccount;
+        let testAccount, testInput;
 
         beforeEach(() => {
             testAccount = new Account();
@@ -10,19 +10,29 @@ describe("Account: ", () => {
 
         afterEach(() => {
             testAccount = undefined;
+            testInput = undefined;
         });
 
         it("Should increase credit by correct amount when amount passed is positive number", () => {
             //Arrange
-            let testInput = 100;
+            testInput = 100;
 
             //Act
             testAccount.addCredit(testInput);
 
             //Assert
-            let expected = 100;
-            let actual = testAccount.getCredit();
-            expect(actual).toBe(expected);
+            expect(testAccount.getCredit()).toBe(testInput);
+        });
+
+        it("Should not change credit when negative number passed", () => {
+            //Arrange
+            testInput = -100;
+
+            //Act
+            testAccount.addCredit(testInput);
+
+            //Assert
+            expect(testAccount.getCredit()).toBe(0);
         });
     });
 });

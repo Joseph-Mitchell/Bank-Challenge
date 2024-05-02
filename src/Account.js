@@ -3,5 +3,9 @@ export default class Account {
 
     getCredit = () => this.#credit;
 
-    addCredit = (credit) => (this.#credit += credit);
+    addCredit = (credit) => {
+        if (credit < 0) return;
+
+        this.#credit += credit;
+    };
 }
