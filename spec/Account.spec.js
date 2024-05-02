@@ -138,6 +138,19 @@ describe("Account: ", () => {
                 //Assert
                 expect(testAccount.getCredit()).toBe(testDebit);
             });
+
+            it("Should not change credit when negative number passed", () => {
+                //Arrange
+                testDebit = 200;
+                testAccount.addCredit(testDebit);
+                testCredit = -100;
+
+                //Act
+                testAccount.removeCredit(testCredit);
+
+                //Assert
+                expect(testAccount.getCredit()).toBe(testDebit);
+            });
         });
     });
 });

@@ -13,7 +13,7 @@ export default class Account {
     }
 
     removeCredit(amount) {
-        if (amount > this.#credit) return;
+        if (amount > this.#credit || amount < 0) return;
 
         this.#credit -= amount;
     }
