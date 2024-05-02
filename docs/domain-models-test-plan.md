@@ -87,36 +87,39 @@ So that I know whether the withdrawal worked.
 
 ### User Story 7
 
-| Objects         | Properties               | Messages           | Output |
-| --------------- | ------------------------ | ------------------ | ------ |
-| Account         | credit @Number           | addCredit(@Number) | @Void  |
-| AccountAccessor | accessedAccount @Account | addCredit(@Number) | @Void  |
+| Objects         | Properties               | Messages           | Output   |
+| --------------- | ------------------------ | ------------------ | -------- |
+| Account         | credit @Number           | addCredit(@Number) | @Boolean |
+| AccountAccessor | accessedAccount @Account | addCredit(@Number) | @Void    |
 
 ### User Story 8
 
-| Objects         | Properties               | Messages              | Output |
-| --------------- | ------------------------ | --------------------- | ------ |
-| Account         | credit @Number           | removeCredit(@Number) | @Void  |
-| AccountAccessor | accessedAccount @Account | removeCredit(@Number) | @Void  |
+| Objects         | Properties               | Messages              | Output   |
+| --------------- | ------------------------ | --------------------- | -------- |
+| Account         | credit @Number           | removeCredit(@Number) | @Boolean |
+| AccountAccessor | accessedAccount @Account | removeCredit(@Number) | @Void    |
 
 ## Test Plan
 
 ### User Story 1
-- [ ] Should set accessedAccount to the correct Account when existing accountNumber passed
-- [ ] Should not change accessedAccount when non-existing accountNumber passed
-- [ ] Should not change accessedAccount when non-number type passed
-- [ ] Should not change accessedAccount when NaN passed
-- [ ] Should not change accessedAccount when undefined passed
+#### Testing AccountAccessor.setAccessedAccount()
+- [x] Should set accessedAccount to the correct Account when existing accountNumber passed
+- [x] Should not change accessedAccount when non-existing accountNumber passed
+- [x] Should not change accessedAccount when non-number type passed
+- [x] Should not change accessedAccount when NaN passed
+- [x] Should not change accessedAccount when undefined passed
 
 ### User Story 2
-- [ ] Should increase credit by correct amount when amount passed is positive number
-- [ ] Should not change credit when negative number passed
-- [ ] Should not change credit when 0 passed
-- [ ] Should not change credit when non-number passed
-- [ ] Should not change credit when NaN passed
-- [ ] Should not change credit when undefined passed
+#### Testing Account.addCredit()
+- [x] Should increase credit by correct amount when amount passed is positive number
+- [x] Should not change credit when negative number passed
+- [x] Should not change credit when 0 passed
+- [x] Should not change credit when non-number passed
+- [x] Should not change credit when NaN passed
+- [x] Should not change credit when undefined passed
 
 ### User Story 3
+#### Testing Account.removeCredit()
 - [ ] Should decrease credit by correct amount when positive number less than credit passed
 - [ ] Should not change credit when positive number more than credit passed
 - [ ] Should decrease credit by correct amount when  number equal to credit passed
@@ -128,7 +131,9 @@ So that I know whether the withdrawal worked.
 - [ ] Should not change credit when undefined passed
 
 ### User Story 4
+#### Testing Account.addCredit()
 - [ ] Should add Transaction to transactions[] when positive number passed
+- [ ] Should create Transaction with expected values
 - [ ] Should not add Transaction to transactions[] when negative number passed
 - [ ] Should not add Transaction to transactions[] when 0 passed
 - [ ] Should not add Transaction to transactions[] when non-number passed
@@ -136,7 +141,9 @@ So that I know whether the withdrawal worked.
 - [ ] Should not add Transaction to transactions[] when undefined passed
 
 ### User Story 5
+#### Testing Account.removeCredit()
 - [ ] Should add Transaction to transactions[] when positive number less than credit passed
+- [ ] Should create Transaction with expected values
 - [ ] Should not add Transaction to transactions[] when number more than credit passed
 - [ ] Should add Transaction to transactions[] when positive number equal to credit passed
 - [ ] Should not add Transaction to transactions[] when negative number passed
@@ -147,10 +154,12 @@ So that I know whether the withdrawal worked.
 - [ ] Should not add Transaction to transactions[] when undefined passed
 
 ### User Story 6
+#### Testing StatementPrinter.printStatement()
 - [ ] Should print transaction history when at least one Transaction in transactions[]
 - [ ] Should print message when no Transactions in transactions[]
 
 ### User Story 7
+#### Testing AccountAccessor.addCredit()
 - [ ] Should print message showing credit when is positive number passed
 - [ ] Should print message stating invalid amount when negative number passed
 - [ ] Should print message stating invalid amount when 0 passed
@@ -159,6 +168,7 @@ So that I know whether the withdrawal worked.
 - [ ] Should print message stating invalid amount when undefined passed
 
 ### User Story 8
+#### Testing AccountAccessor.removeCredit()
 - [ ] Should print message showing credit when positive number less than credit passed
 - [ ] Should print message stating invalid amount when positive number more than credit passed
 - [ ] Should print message showing credit when positive number equal to credit passed
