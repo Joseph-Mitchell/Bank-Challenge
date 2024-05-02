@@ -110,6 +110,19 @@ describe("Account: ", () => {
                 //Assert
                 expect(testAccount.getCredit()).toBe(testDebit - testCredit);
             });
+
+            it("Should decrease credit by correct amount when  number equal to credit passed", () => {
+                //Arrange
+                testDebit = 200;
+                testAccount.addCredit(testDebit);
+                testCredit = 200;
+
+                //Act
+                testAccount.removeCredit(testCredit);
+
+                //Assert
+                expect(testAccount.getCredit()).toBe(testDebit - testCredit);
+            });
         });
 
         describe("Invalid Inputs: ", () => {
