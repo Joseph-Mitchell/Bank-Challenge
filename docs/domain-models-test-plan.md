@@ -120,19 +120,19 @@ So that I know whether the withdrawal worked.
 
 ### User Story 3
 #### Testing Account.removeCredit()
-- [ ] Should decrease credit by correct amount when positive number less than credit passed
-- [ ] Should not change credit when positive number more than credit passed
-- [ ] Should decrease credit by correct amount when  number equal to credit passed
-- [ ] Should not change credit when negative number passed
-- [ ] Should not change credit when 0 passed
-- [ ] Should not change credit when credit 0 and 0 passed
-- [ ] Should not change credit when non-number passed
-- [ ] Should not change credit when NaN passed
-- [ ] Should not change credit when undefined passed
+- [x] Should decrease credit by correct amount when positive number less than credit passed
+- [x] Should not change credit when positive number more than credit passed
+- [x] Should decrease credit by correct amount when  number equal to credit passed
+- [x] Should not change credit when negative number passed
+- [x] Should not change credit when 0 passed
+- [x] Should not change credit when credit 0 and 0 passed
+- [x] Should not change credit when non-number passed
+- [x] Should not change credit when NaN passed
+- [x] Should not change credit when undefined passed
 
 ### User Story 4
 #### Testing Account.addCredit()
-- [ ] Should add Transaction with correct values to transactions[] when positive number passed
+- [x] Should add Transaction with correct values to transactions[] when positive number passed
 - [ ] Should not add Transaction to transactions[] when negative number passed
 - [ ] Should not add Transaction to transactions[] when 0 passed
 - [ ] Should not add Transaction to transactions[] when non-number passed
