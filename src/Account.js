@@ -5,10 +5,14 @@ export default class Account {
 
     validateNumber = (number) => typeof number === "number" && !isNaN(number);
 
-    addCredit = (credit) => {
-        if (!this.validateNumber(credit)) return;
-        if (credit < 0) return;
+    addCredit(amount) {
+        if (!this.validateNumber(amount)) return;
+        if (amount < 0) return;
 
-        this.#credit += credit;
-    };
+        this.#credit += amount;
+    }
+
+    removeCredit(amount) {
+        this.#credit -= amount;
+    }
 }
