@@ -67,23 +67,23 @@ So that I know whether the withdrawal worked.
 
 | Objects     | Properties                                          | Messages           | Output |
 | ----------- | --------------------------------------------------- | ------------------ | ------ |
-| Transaction | date @Date<br>type @String<br>amount @Number        |                    |        |
+| Transaction | date @Date<br>amount @Number                        |                    |        |
 | Account     | credit @Number<br>transactions @Array[@Transaction] | addCredit(@Number) | @Void  |
 
 ### User Story 5
 
 | Objects     | Properties                                          | Messages              | Output |
 | ----------- | --------------------------------------------------- | --------------------- | ------ |
-| Transaction | date @Date<br>type @String<br>amount @Number        |                       |        |
+| Transaction | date @Date<br>amount @Number                        |                       |        |
 | Account     | credit @Number<br>transactions @Array[@Transaction] | removeCredit(@Number) | @Void  |
 
 ### User Story 6
 
-| Objects          | Properties                                   | Messages                              | Output                      |
-| ---------------- | -------------------------------------------- | ------------------------------------- | --------------------------- |
-| Transaction      | date @Date<br>type @String<br>amount @Number | getDate()<br>getType()<br>getAmount() | @Date<br>@String<br>@Number |
-| Account          | transactions @Array[@Transaction]            | getStatement()                        | @Array[@Transaction]        |
-| StatementPrinter |                                              | printStatement(@Array[@Transaction])  | @Void                       |
+| Objects          | Properties                        | Messages                             | Output               |
+| ---------------- | --------------------------------- | ------------------------------------ | -------------------- |
+| Transaction      | date @Date<br>amount @Number      |                                      |                      |
+| Account          | transactions @Array[@Transaction] | getStatement()                       | @Array[@Transaction] |
+| StatementPrinter |                                   | printStatement(@Array[@Transaction]) | @Void                |
 
 ### User Story 7
 
@@ -132,8 +132,7 @@ So that I know whether the withdrawal worked.
 
 ### User Story 4
 #### Testing Account.addCredit()
-- [ ] Should add Transaction to transactions[] when positive number passed
-- [ ] Should create Transaction with expected values
+- [ ] Should add Transaction with correct values to transactions[] when positive number passed
 - [ ] Should not add Transaction to transactions[] when negative number passed
 - [ ] Should not add Transaction to transactions[] when 0 passed
 - [ ] Should not add Transaction to transactions[] when non-number passed
@@ -142,8 +141,7 @@ So that I know whether the withdrawal worked.
 
 ### User Story 5
 #### Testing Account.removeCredit()
-- [ ] Should add Transaction to transactions[] when positive number less than credit passed
-- [ ] Should create Transaction with expected values
+- [ ] Should add Transaction with correct values to transactions[] when positive number less than credit passed
 - [ ] Should not add Transaction to transactions[] when number more than credit passed
 - [ ] Should add Transaction to transactions[] when positive number equal to credit passed
 - [ ] Should not add Transaction to transactions[] when negative number passed
