@@ -111,5 +111,20 @@ describe("Account: ", () => {
                 expect(testAccount.getCredit()).toBe(testDebit - testCredit);
             });
         });
+
+        describe("Invalid Inputs: ", () => {
+            it("Should not change credit when positive number more than credit passed", () => {
+                //Arrange
+                testDebit = 200;
+                testAccount.addCredit(testDebit);
+                testCredit = 300;
+
+                //Act
+                testAccount.removeCredit(testCredit);
+
+                //Assert
+                expect(testAccount.getCredit()).toBe(testDebit);
+            });
+        });
     });
 });
