@@ -4,6 +4,7 @@ export default class Account {
     getCredit = () => this.#credit;
 
     addCredit = (credit) => {
+        if (typeof credit !== "number") return;
         if (credit < 0) return;
 
         this.#credit += credit;

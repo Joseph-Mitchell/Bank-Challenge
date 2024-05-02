@@ -48,5 +48,17 @@ describe("Account: ", () => {
             //Assert
             expect(testAccount.getCredit()).toBe(expected);
         });
+
+        it("Should not change credit when non-number passed", () => {
+            //Arrange
+            testInput = "";
+
+            //Act
+            expected = testAccount.getCredit();
+            testAccount.addCredit(testInput);
+
+            //Assert
+            expect(testAccount.getCredit()).toBe(expected);
+        });
     });
 });
