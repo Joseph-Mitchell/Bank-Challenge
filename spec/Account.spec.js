@@ -60,5 +60,17 @@ describe("Account: ", () => {
             //Assert
             expect(testAccount.getCredit()).toBe(expected);
         });
+
+        it("Should not change credit when NaN passed", () => {
+            //Arrange
+            testInput = NaN;
+
+            //Act
+            expected = testAccount.getCredit();
+            testAccount.addCredit(testInput);
+
+            //Assert
+            expect(testAccount.getCredit()).toBe(expected);
+        });
     });
 });

@@ -3,8 +3,10 @@ export default class Account {
 
     getCredit = () => this.#credit;
 
+    validateNumber = (number) => typeof number === "number" && !isNaN(number);
+
     addCredit = (credit) => {
-        if (typeof credit !== "number") return;
+        if (!this.validateNumber(credit)) return;
         if (credit < 0) return;
 
         this.#credit += credit;
