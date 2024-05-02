@@ -78,5 +78,19 @@ describe("AccountAccessor:", () => {
             let actual = AccountAccessor.getAccessedAccount();
             expect(actual).toBeUndefined();
         });
+
+        it("Should not change accessedAccount when undefined passed", () => {
+            //Arrange
+            AccountAccessor.setAccounts(testAccounts);
+
+            let testAccountNumber = undefined;
+
+            //Act
+            AccountAccessor.setAccessedAccount(testAccountNumber);
+
+            //Assert
+            let actual = AccountAccessor.getAccessedAccount();
+            expect(actual).toBeUndefined();
+        });
     });
 });
