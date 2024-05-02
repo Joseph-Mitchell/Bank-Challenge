@@ -188,6 +188,19 @@ describe("Account: ", () => {
                 //Assert
                 expect(testAccount.getCredit()).toBe(testDebit);
             });
+
+            it("Should not change credit when NaN passed", () => {
+                //Arrange
+                testDebit = 200;
+                testAccount.addCredit(testDebit);
+                testCredit = NaN;
+
+                //Act
+                testAccount.removeCredit(testCredit);
+
+                //Assert
+                expect(testAccount.getCredit()).toBe(testDebit);
+            });
         });
     });
 });
