@@ -72,5 +72,17 @@ describe("Account: ", () => {
             //Assert
             expect(testAccount.getCredit()).toBe(expected);
         });
+
+        it("Should not change credit when undefined passed", () => {
+            //Arrange
+            testInput = undefined;
+
+            //Act
+            expected = testAccount.getCredit();
+            testAccount.addCredit(testInput);
+
+            //Assert
+            expect(testAccount.getCredit()).toBe(expected);
+        });
     });
 });
