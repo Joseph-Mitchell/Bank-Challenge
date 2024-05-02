@@ -1,7 +1,7 @@
 import AccountAccessor from "../src/AccountAccessor.js";
 
 describe("AccountAccessor:", () => {
-    describe("setAccessedAccount():", () => {
+    describe("Inputs to setAccessedAccount():", () => {
         let testAccounts = [];
 
         beforeEach(() => {
