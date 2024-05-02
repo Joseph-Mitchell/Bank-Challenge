@@ -164,6 +164,17 @@ describe("Account: ", () => {
                 //Assert
                 expect(testAccount.getCredit()).toBe(testDebit);
             });
+
+            it("Should not change credit when credit 0 and 0 passed", () => {
+                //Arrange
+                testCredit = 0;
+
+                //Act
+                testAccount.removeCredit(testCredit);
+
+                //Assert
+                expect(testAccount.getCredit()).toBe(0);
+            });
         });
     });
 });
