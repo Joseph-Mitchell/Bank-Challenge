@@ -353,6 +353,19 @@ describe("Account: ", () => {
                     //Assert
                     expect(testAccount.getTransactions().length).toBe(1);
                 });
+
+                it("Should not add Transaction when negative number passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = -100;
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getTransactions().length).toBe(1);
+                });
             });
         });
     });
