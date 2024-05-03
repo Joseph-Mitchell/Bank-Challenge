@@ -109,11 +109,11 @@ describe("Account: ", () => {
                     testCredit = -100;
 
                     //Act
-                    expected = testAccount.getCredit();
+                    expected = testAccount.getTransactions().length;
                     testAccount.addCredit(testCredit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(0);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
 
                 it("Should not add Transaction when 0 passed", () => {
@@ -121,11 +121,11 @@ describe("Account: ", () => {
                     testCredit = 0;
 
                     //Act
-                    expected = testAccount.getCredit();
+                    expected = testAccount.getTransactions().length;
                     testAccount.addCredit(testCredit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(0);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
 
                 it("Should not add Transaction when non-number passed", () => {
@@ -133,11 +133,11 @@ describe("Account: ", () => {
                     testCredit = "100";
 
                     //Act
-                    expected = testAccount.getCredit();
+                    expected = testAccount.getTransactions().length;
                     testAccount.addCredit(testCredit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(0);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
 
                 it("Should not add Transaction when non-number passed", () => {
@@ -145,11 +145,11 @@ describe("Account: ", () => {
                     testCredit = "100";
 
                     //Act
-                    expected = testAccount.getCredit();
+                    expected = testAccount.getTransactions().length;
                     testAccount.addCredit(testCredit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(0);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
 
                 it("Should not add Transaction when non-number passed", () => {
@@ -157,11 +157,11 @@ describe("Account: ", () => {
                     testCredit = NaN;
 
                     //Act
-                    expected = testAccount.getCredit();
+                    expected = testAccount.getTransactions().length;
                     testAccount.addCredit(testCredit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(0);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
 
                 it("Should not add Transaction when non-number passed", () => {
@@ -169,11 +169,11 @@ describe("Account: ", () => {
                     testCredit = undefined;
 
                     //Act
-                    expected = testAccount.getCredit();
+                    expected = testAccount.getTransactions().length;
                     testAccount.addCredit(testCredit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(0);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
             });
         });
@@ -294,10 +294,11 @@ describe("Account: ", () => {
                     testDebit = 0;
 
                     //Act
+                    expected = testAccount.getCredit();
                     testAccount.removeCredit(testDebit);
 
                     //Assert
-                    expect(testAccount.getCredit()).toBe(0);
+                    expect(testAccount.getCredit()).toBe(expected);
                 });
 
                 it("Should not change credit when non-number passed", () => {
@@ -348,10 +349,11 @@ describe("Account: ", () => {
                     testDebit = 300;
 
                     //Act
+                    expected = testAccount.getTransactions().length;
                     testAccount.removeCredit(testDebit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(1);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
 
                 it("Should not add Transaction when negative number passed", () => {
@@ -361,10 +363,11 @@ describe("Account: ", () => {
                     testDebit = -100;
 
                     //Act
+                    expected = testAccount.getTransactions().length;
                     testAccount.removeCredit(testDebit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(1);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
 
                 it("Should not add Transaction when 0 passed", () => {
@@ -374,10 +377,11 @@ describe("Account: ", () => {
                     testDebit = 0;
 
                     //Act
+                    expected = testAccount.getTransactions().length;
                     testAccount.removeCredit(testDebit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(1);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
 
                 it("Should not add Transaction when credit 0 and 0 passed", () => {
@@ -385,10 +389,11 @@ describe("Account: ", () => {
                     testDebit = 0;
 
                     //Act
+                    expected = testAccount.getTransactions().length;
                     testAccount.removeCredit(testDebit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(0);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
 
                 it("Should not add Transaction when non-number passed", () => {
@@ -398,10 +403,11 @@ describe("Account: ", () => {
                     testDebit = "100";
 
                     //Act
+                    expected = testAccount.getTransactions().length;
                     testAccount.removeCredit(testDebit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(1);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
 
                 it("Should not add Transaction when NaN passed", () => {
@@ -411,10 +417,11 @@ describe("Account: ", () => {
                     testDebit = NaN;
 
                     //Act
+                    expected = testAccount.getTransactions().length;
                     testAccount.removeCredit(testDebit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(1);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
 
                 it("Should not add Transaction when undefined passed", () => {
@@ -424,10 +431,11 @@ describe("Account: ", () => {
                     testDebit = undefined;
 
                     //Act
+                    expected = testAccount.getTransactions().length;
                     testAccount.removeCredit(testDebit);
 
                     //Assert
-                    expect(testAccount.getTransactions().length).toBe(1);
+                    expect(testAccount.getTransactions().length).toBe(expected);
                 });
             });
         });
