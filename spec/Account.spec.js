@@ -139,6 +139,30 @@ describe("Account: ", () => {
                     //Assert
                     expect(testAccount.getTransactions().length).toBe(0);
                 });
+
+                it("Should not add Transaction when non-number passed", () => {
+                    //Arrange
+                    testCredit = "100";
+
+                    //Act
+                    expected = testAccount.getCredit();
+                    testAccount.addCredit(testCredit);
+
+                    //Assert
+                    expect(testAccount.getTransactions().length).toBe(0);
+                });
+
+                it("Should not add Transaction when non-number passed", () => {
+                    //Arrange
+                    testCredit = NaN;
+
+                    //Act
+                    expected = testAccount.getCredit();
+                    testAccount.addCredit(testCredit);
+
+                    //Assert
+                    expect(testAccount.getTransactions().length).toBe(0);
+                });
             });
         });
     });
