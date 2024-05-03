@@ -114,6 +114,8 @@ So that I know whether the withdrawal worked.
 - [x] Should increase credit by correct amount when amount passed is positive number
 - [x] Should not change credit when negative number passed
 - [x] Should not change credit when 0 passed
+- [ ] Should change credit when decimal passed
+- [ ] Should not change credit when more than 2 decimal places passed
 - [x] Should not change credit when non-number passed
 - [x] Should not change credit when NaN passed
 - [x] Should not change credit when undefined passed
@@ -125,6 +127,8 @@ So that I know whether the withdrawal worked.
 - [x] Should decrease credit by correct amount when  number equal to credit passed
 - [x] Should not change credit when negative number passed
 - [x] Should not change credit when 0 passed
+- [ ] Should change credit when decimal passed
+- [ ] Should not change credit when more than 2 decimal places passed
 - [x] Should not change credit when credit 0 and 0 passed
 - [x] Should not change credit when non-number passed
 - [x] Should not change credit when NaN passed
@@ -135,6 +139,8 @@ So that I know whether the withdrawal worked.
 - [x] Should add Transaction with correct values when positive number passed
 - [ ] Should not add Transaction when negative number passed
 - [ ] Should not add Transaction when 0 passed
+- [ ] Should add Transaction with correct values when decimal passed
+- [ ] Should not add Transaction when more than 2 decimal places passed
 - [ ] Should not add Transaction when non-number passed
 - [ ] Should not add Transaction when NaN passed
 - [ ] Should not add Transaction when undefined passed
@@ -145,6 +151,8 @@ So that I know whether the withdrawal worked.
 - [ ] Should not add Transaction positive number equal to credit passed
 - [ ] Should not add Transaction when negative number passed
 - [ ] Should not add Transaction when 0 passed
+- [ ] Should add Transaction with correct values when decimal passed
+- [ ] Should not add Transaction when more than 2 decimal places passed
 - [ ] Should not add Transaction when credit 0 and 0 passed
 - [ ] Should not add Transaction when non-number passed
 - [ ] Should not add Transaction when NaN passed
@@ -152,7 +160,9 @@ So that I know whether the withdrawal worked.
 
 ### User Story 6
 #### Testing StatementPrinter.printStatement()
-- [ ] Should print transaction history when at least one Transaction in Account
+- [ ] Should print transaction history to acceptance criteria standards with basic input
+- [ ] Should print correctly when credit length longer than 6 characters
+- [ ] Should print correctly when debit length longer than 5 characters
 - [ ] Should print message when no Transactions in Account
 
 ### User Story 7
