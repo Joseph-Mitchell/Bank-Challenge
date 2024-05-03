@@ -41,8 +41,8 @@ describe("Account: ", () => {
         });
 
         describe("Invalid Inputs: ", () => {
-            describe("Should not change credit when", () => {
-                it("negative number passed", () => {
+            describe("Credit: ", () => {
+                it("Should not change credit when negative number passed", () => {
                     //Arrange
                     testCredit = -100;
 
@@ -54,7 +54,7 @@ describe("Account: ", () => {
                     expect(testAccount.getCredit()).toBe(expected);
                 });
 
-                it("0 passed", () => {
+                it("Should not change credit when 0 passed", () => {
                     //Arrange
                     testCredit = 0;
 
@@ -66,7 +66,7 @@ describe("Account: ", () => {
                     expect(testAccount.getCredit()).toBe(expected);
                 });
 
-                it("non-number passed", () => {
+                it("Should not change credit when non-number passed", () => {
                     //Arrange
                     testCredit = "";
 
@@ -78,7 +78,7 @@ describe("Account: ", () => {
                     expect(testAccount.getCredit()).toBe(expected);
                 });
 
-                it("NaN passed", () => {
+                it("Should not change credit when NaN passed", () => {
                     //Arrange
                     testCredit = NaN;
 
@@ -90,7 +90,7 @@ describe("Account: ", () => {
                     expect(testAccount.getCredit()).toBe(expected);
                 });
 
-                it("undefined passed", () => {
+                it("Should not change credit when undefined passed", () => {
                     //Arrange
                     testCredit = undefined;
 
@@ -100,6 +100,20 @@ describe("Account: ", () => {
 
                     //Assert
                     expect(testAccount.getCredit()).toBe(expected);
+                });
+            });
+
+            describe("Transactions: ", () => {
+                it("Should not change credit when negative number passed", () => {
+                    //Arrange
+                    testCredit = -100;
+
+                    //Act
+                    expected = testAccount.getCredit();
+                    testAccount.addCredit(testCredit);
+
+                    //Assert
+                    expect(testAccount.getTransactions().length).toBe(0);
                 });
             });
         });
