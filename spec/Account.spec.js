@@ -230,6 +230,21 @@ describe("Account: ", () => {
                     expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
                     expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
                 });
+
+                it("Should add Transaction when positive number equal to credit passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = 200;
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    let expectedDate = new Date().toLocaleDateString("en-UK");
+                    expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
+                    expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
+                });
             });
         });
 
