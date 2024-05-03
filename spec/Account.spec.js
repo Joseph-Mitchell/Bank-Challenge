@@ -416,6 +416,19 @@ describe("Account: ", () => {
                     //Assert
                     expect(testAccount.getTransactions().length).toBe(1);
                 });
+
+                it("Should not add Transaction when undefined passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = undefined;
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getTransactions().length).toBe(1);
+                });
             });
         });
     });
