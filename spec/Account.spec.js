@@ -104,9 +104,21 @@ describe("Account: ", () => {
             });
 
             describe("Transactions: ", () => {
-                it("Should not change credit when negative number passed", () => {
+                it("Should not add Transaction when negative number passed", () => {
                     //Arrange
                     testCredit = -100;
+
+                    //Act
+                    expected = testAccount.getCredit();
+                    testAccount.addCredit(testCredit);
+
+                    //Assert
+                    expect(testAccount.getTransactions().length).toBe(0);
+                });
+
+                it("Should not add Transaction when 0 passed", () => {
+                    //Arrange
+                    testCredit = 0;
 
                     //Act
                     expected = testAccount.getCredit();

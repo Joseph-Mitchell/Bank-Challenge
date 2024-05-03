@@ -10,7 +10,7 @@ export default class Account {
 
     addCredit(amount) {
         if (!this.#validateNumber(amount)) return;
-        if (amount < 0) return;
+        if (amount <= 0) return;
 
         this.#credit += amount;
 
