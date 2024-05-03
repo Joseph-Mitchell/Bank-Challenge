@@ -228,99 +228,116 @@ describe("Account: ", () => {
                     //Assert
                     let expectedDate = new Date().toLocaleDateString("en-UK");
                     expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
-                    expect(testAccount.getTransactions()[1].amount).toBe(-(testCredit - testDebit));
+                    expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
                 });
             });
         });
 
         describe("Invalid Inputs: ", () => {
-            it("Should not change credit when positive number more than credit passed", () => {
-                //Arrange
-                testCredit = 200;
-                testAccount.addCredit(testCredit);
-                testDebit = 300;
+            describe("Credit: ", () => {
+                it("Should not change credit when positive number more than credit passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = 300;
 
-                //Act
-                testAccount.removeCredit(testDebit);
+                    //Act
+                    testAccount.removeCredit(testDebit);
 
-                //Assert
-                expect(testAccount.getCredit()).toBe(testCredit);
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(testCredit);
+                });
+
+                it("Should not change credit when negative number passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = -100;
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(testCredit);
+                });
+
+                it("Should not change credit when 0 passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = 0;
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(testCredit);
+                });
+
+                it("Should not change credit when credit 0 and 0 passed", () => {
+                    //Arrange
+                    testDebit = 0;
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(0);
+                });
+
+                it("Should not change credit when non-number passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = "100";
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(testCredit);
+                });
+
+                it("Should not change credit when NaN passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = NaN;
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(testCredit);
+                });
+
+                it("Should not change credit when undefined passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = undefined;
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(testCredit);
+                });
             });
 
-            it("Should not change credit when negative number passed", () => {
-                //Arrange
-                testCredit = 200;
-                testAccount.addCredit(testCredit);
-                testDebit = -100;
+            describe("Transactions: ", () => {
+                it("Should not add Transaction when number more than credit passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = 300;
 
-                //Act
-                testAccount.removeCredit(testDebit);
+                    //Act
+                    testAccount.removeCredit(testDebit);
 
-                //Assert
-                expect(testAccount.getCredit()).toBe(testCredit);
-            });
-
-            it("Should not change credit when 0 passed", () => {
-                //Arrange
-                testCredit = 200;
-                testAccount.addCredit(testCredit);
-                testDebit = 0;
-
-                //Act
-                testAccount.removeCredit(testDebit);
-
-                //Assert
-                expect(testAccount.getCredit()).toBe(testCredit);
-            });
-
-            it("Should not change credit when credit 0 and 0 passed", () => {
-                //Arrange
-                testDebit = 0;
-
-                //Act
-                testAccount.removeCredit(testDebit);
-
-                //Assert
-                expect(testAccount.getCredit()).toBe(0);
-            });
-
-            it("Should not change credit when non-number passed", () => {
-                //Arrange
-                testCredit = 200;
-                testAccount.addCredit(testCredit);
-                testDebit = "100";
-
-                //Act
-                testAccount.removeCredit(testDebit);
-
-                //Assert
-                expect(testAccount.getCredit()).toBe(testCredit);
-            });
-
-            it("Should not change credit when NaN passed", () => {
-                //Arrange
-                testCredit = 200;
-                testAccount.addCredit(testCredit);
-                testDebit = NaN;
-
-                //Act
-                testAccount.removeCredit(testDebit);
-
-                //Assert
-                expect(testAccount.getCredit()).toBe(testCredit);
-            });
-
-            it("Should not change credit when undefined passed", () => {
-                //Arrange
-                testCredit = 200;
-                testAccount.addCredit(testCredit);
-                testDebit = undefined;
-
-                //Act
-                testAccount.removeCredit(testDebit);
-
-                //Assert
-                expect(testAccount.getCredit()).toBe(testCredit);
+                    //Assert
+                    expect(testAccount.getTransactions().length).toBe(1);
+                });
             });
         });
     });
