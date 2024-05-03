@@ -390,6 +390,19 @@ describe("Account: ", () => {
                     //Assert
                     expect(testAccount.getTransactions().length).toBe(0);
                 });
+
+                it("Should not add Transaction when non-number passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = "100";
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getTransactions().length).toBe(1);
+                });
             });
         });
     });
