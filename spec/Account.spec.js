@@ -187,30 +187,49 @@ describe("Account: ", () => {
         });
 
         describe("Valid Inputs: ", () => {
-            it("Should decrease credit by correct amount when positive number less than credit passed", () => {
-                //Arrange
-                testCredit = 200;
-                testAccount.addCredit(testCredit);
-                testDebit = 100;
+            describe("Credit: ", () => {
+                it("Should decrease credit by correct amount when positive number less than credit passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = 100;
 
-                //Act
-                testAccount.removeCredit(testDebit);
+                    //Act
+                    testAccount.removeCredit(testDebit);
 
-                //Assert
-                expect(testAccount.getCredit()).toBe(testCredit - testDebit);
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(testCredit - testDebit);
+                });
+
+                it("Should decrease credit by correct amount when  number equal to credit passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = 200;
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(testCredit - testDebit);
+                });
             });
 
-            it("Should decrease credit by correct amount when  number equal to credit passed", () => {
-                //Arrange
-                testCredit = 200;
-                testAccount.addCredit(testCredit);
-                testDebit = 200;
+            describe("Transactions: ", () => {
+                it("Should add Transaction with correct values when positive number less than credit passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = 100;
 
-                //Act
-                testAccount.removeCredit(testDebit);
+                    //Act
+                    testAccount.removeCredit(testDebit);
 
-                //Assert
-                expect(testAccount.getCredit()).toBe(testCredit - testDebit);
+                    //Assert
+                    let expectedDate = new Date().toLocaleDateString("en-UK");
+                    expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
+                    expect(testAccount.getTransactions()[1].amount).toBe(-(testCredit - testDebit));
+                });
             });
         });
 

@@ -132,29 +132,28 @@ So that I know whether the withdrawal worked.
 
 ### User Story 4
 #### Testing Account.addCredit()
-- [x] Should add Transaction with correct values to transactions[] when positive number passed
-- [ ] Should not add Transaction to transactions[] when negative number passed
-- [ ] Should not add Transaction to transactions[] when 0 passed
-- [ ] Should not add Transaction to transactions[] when non-number passed
-- [ ] Should not add Transaction to transactions[] when NaN passed
-- [ ] Should not add Transaction to transactions[] when undefined passed
+- [x] Should add Transaction with correct values when positive number passed
+- [ ] Should not add Transaction when negative number passed
+- [ ] Should not add Transaction when 0 passed
+- [ ] Should not add Transaction when non-number passed
+- [ ] Should not add Transaction when NaN passed
+- [ ] Should not add Transaction when undefined passed
 
 ### User Story 5
 #### Testing Account.removeCredit()
-- [ ] Should add Transaction with correct values to transactions[] when positive number less than credit passed
-- [ ] Should not add Transaction to transactions[] when number more than credit passed
-- [ ] Should add Transaction to transactions[] when positive number equal to credit passed
-- [ ] Should not add Transaction to transactions[] when negative number passed
-- [ ] Should not add Transaction to transactions[] when 0 passed
-- [ ] Should not add Transaction to transactions[] when credit 0 and 0 passed
-- [ ] Should not add Transaction to transactions[] when non-number passed
-- [ ] Should not add Transaction to transactions[] when NaN passed
-- [ ] Should not add Transaction to transactions[] when undefined passed
+- [ ] Should add Transaction with correct values when positive number less than credit passed
+- [ ] Should not add Transaction positive number equal to credit passed
+- [ ] Should not add Transaction when negative number passed
+- [ ] Should not add Transaction when 0 passed
+- [ ] Should not add Transaction when credit 0 and 0 passed
+- [ ] Should not add Transaction when non-number passed
+- [ ] Should not add Transaction when NaN passed
+- [ ] Should not add Transaction when undefined passed
 
 ### User Story 6
 #### Testing StatementPrinter.printStatement()
-- [ ] Should print transaction history when at least one Transaction in transactions[]
-- [ ] Should print message when no Transactions in transactions[]
+- [ ] Should print transaction history when at least one Transaction in Account
+- [ ] Should print message when no Transactions in Account
 
 ### User Story 7
 #### Testing AccountAccessor.addCredit()

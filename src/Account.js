@@ -25,5 +25,10 @@ export default class Account {
         if (amount > this.#credit || amount < 0) return;
 
         this.#credit -= amount;
+
+        this.#transactions.push({
+            date: new Date().toLocaleDateString("en-UK"),
+            amount: -amount,
+        });
     }
 }
