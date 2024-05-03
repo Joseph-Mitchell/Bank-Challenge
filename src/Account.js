@@ -22,7 +22,7 @@ export default class Account {
 
     removeCredit(amount) {
         if (!this.#validateNumber(amount)) return;
-        if (amount > this.#credit || amount < 0) return;
+        if (amount > this.#credit || amount <= 0) return;
 
         this.#credit -= amount;
 
