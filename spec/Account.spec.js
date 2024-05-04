@@ -377,6 +377,19 @@ describe("Account: ", () => {
                     //Assert
                     expect(testAccount.getCredit()).toBe(testCredit);
                 });
+
+                it("Should not change credit when more than 2 decimal places passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = 150.555;
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(testCredit);
+                });
             });
 
             describe("Transactions: ", () => {
