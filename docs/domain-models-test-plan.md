@@ -163,7 +163,7 @@ So that I know whether the withdrawal worked.
 - [x] Should print transaction history to acceptance criteria standards with basic input
 - [x] Should print correctly when amount length longer than column title
 - [x] Should print correctly with amounts of differing length
-- [ ] Should print message when no Transactions in Account
+- [x] Should print message when no Transactions in Account
 
 ### User Story 7
 #### Testing AccountAccessor.addCredit()

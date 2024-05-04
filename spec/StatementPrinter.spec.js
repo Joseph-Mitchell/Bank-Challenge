@@ -108,5 +108,19 @@ describe("Statement Printer: ", () => {
                     "10/01/2012 || 1.00      ||           || 1.00\n"
             );
         });
+
+        it("Should print message when no Transactions in Account", () => {
+            //Arrange
+            let testAccount = jasmine.createSpyObj("testAccount", {
+                getTransactions: [],
+            });
+            spyOn(console, "log");
+
+            //Act
+            StatementPrinter.printStatement(testAccount.getTransactions());
+
+            //Assert
+            expect(console.log).toHaveBeenCalledWith("No previous transactions found for this account");
+        });
     });
 });

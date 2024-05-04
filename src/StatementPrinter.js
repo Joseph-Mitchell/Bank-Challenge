@@ -48,6 +48,8 @@ export default class StatementPrinter {
     }
 
     static printStatement(transactions) {
+        if (transactions.length === 0) return console.log("No previous transactions found for this account");
+
         this.#totalBalance = 0;
         this.#setColumnWidths(transactions);
 
