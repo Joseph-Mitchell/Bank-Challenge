@@ -148,14 +148,15 @@ So that I know whether the withdrawal worked.
 ### User Story 5
 #### Testing Account.removeCredit()
 - [x] Should add Transaction with correct values when positive number less than credit passed
-- [x] Should not add Transaction positive number equal to credit passed
+- [x] Should not add Transaction when number more than credit passed
+- [x] Should add Transaction when positive number equal to credit passed
 - [x] Should not add Transaction when negative number passed
 - [x] Should not add Transaction when 0 passed
 - [x] Should not add Transaction when credit 0 and 0 passed
 - [x] Should not add Transaction when non-number passed
 - [x] Should not add Transaction when NaN passed
 - [x] Should not add Transaction when undefined passed
-- [ ] Should add Transaction with correct values when decimal passed
+- [x] Should add Transaction with correct values when decimal passed
 - [ ] Should not add Transaction when more than 2 decimal places passed
 
 ### User Story 6

@@ -310,6 +310,21 @@ describe("Account: ", () => {
                     expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
                     expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
                 });
+
+                it("Should add Transaction with correct values when decimal passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = 150.55;
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    let expectedDate = new Date().toLocaleDateString("en-UK");
+                    expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
+                    expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
+                });
             });
         });
 
