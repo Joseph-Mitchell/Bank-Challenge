@@ -163,8 +163,7 @@ So that I know whether the withdrawal worked.
 - [x] Should print transaction history to acceptance criteria standards with basic input
 - [x] Should print correctly when credit length longer than 6 characters
 - [x] Should print correctly when debit length longer than 5 characters
-- [ ] Should print correctly with credits of differing length
-- [ ] Should print correctly with debits of differing length
+- [x] Should print correctly with amounts of differing length
 - [ ] Should print message when no Transactions in Account
 
 ### User Story 7
