@@ -169,7 +169,7 @@ So that I know whether the withdrawal worked.
 ### User Story 7
 #### Testing AccountAccessor.addCredit()
 - [x] Should call addCredit on the accessed account with the given input
-- [ ] Should print message showing credit when valid number passed
+- [x] Should print message showing credit when valid number passed
 - [ ] Should print message stating invalid amount when negative number passed
 - [ ] Should print message stating invalid amount when 0 passed
 - [ ] Should print message stating invalid amount when more than 2 decimal places passed

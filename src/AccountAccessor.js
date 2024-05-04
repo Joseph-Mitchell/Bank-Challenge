@@ -16,5 +16,6 @@ export default class AccountAccessor {
 
     static addCredit(amount) {
         this.#accessedAccount.addCredit(amount);
+        console.log("Transaction successful, new balance is £" + this.#accessedAccount.getCredit().toFixed(2));
     }
 }

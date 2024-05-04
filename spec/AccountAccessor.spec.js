@@ -95,6 +95,7 @@ describe("AccountAccessor:", () => {
         let testCredit, testAccount;
 
         beforeEach(() => {
+            testCredit = 100;
             testAccount = jasmine.createSpyObj("testAccount", {
                 getAccountNumber: 12345678,
                 getCredit: 100,
@@ -102,21 +103,30 @@ describe("AccountAccessor:", () => {
             });
             AccountAccessor.setAccounts([testAccount]);
             AccountAccessor.setAccessedAccount(12345678);
+
+            spyOn(console, "log");
         });
 
         afterEach(() => {
             testCredit = undefined;
+            testAccount = undefined;
+            AccountAccessor.setAccounts(undefined);
         });
 
         it("Should call addCredit on the accessed account with the given input", () => {
-            //Arrange
-            testCredit = 100;
-
             //Act
             AccountAccessor.addCredit(testCredit);
 
             //Assert
             expect(testAccount.addCredit).toHaveBeenCalledWith(100);
+        });
+
+        it("Should print message showing credit when is positive number passed", () => {
+            //Act
+            AccountAccessor.addCredit(testCredit);
+
+            //Assert
+            expect(console.log).toHaveBeenCalledWith("Transaction successful, new balance is £100.00");
         });
     });
 });
