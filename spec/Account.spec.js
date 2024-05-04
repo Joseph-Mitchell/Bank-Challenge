@@ -530,6 +530,20 @@ describe("Account: ", () => {
                     //Assert
                     expect(testAccount.getTransactions().length).toBe(expected);
                 });
+
+                it("Should not add Transaction when more than 2 decimal places passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = 150.555;
+
+                    //Act
+                    expected = testAccount.getTransactions().length;
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getTransactions().length).toBe(expected);
+                });
             });
         });
     });
