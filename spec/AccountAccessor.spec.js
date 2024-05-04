@@ -1,7 +1,7 @@
 import AccountAccessor from "../src/AccountAccessor.js";
 
 describe("AccountAccessor:", () => {
-    describe("Inputs to setAccessedAccount():", () => {
+    describe("setAccessedAccount():", () => {
         let testAccounts, testAccountNumber;
 
         beforeEach(() => {
@@ -88,6 +88,35 @@ describe("AccountAccessor:", () => {
 
             //Assert
             expect(AccountAccessor.getAccessedAccount()).toBeUndefined();
+        });
+    });
+
+    describe("addCredit()", () => {
+        let testCredit, testAccount;
+
+        beforeEach(() => {
+            testAccount = jasmine.createSpyObj("testAccount", {
+                getAccountNumber: 12345678,
+                getCredit: 100,
+                addCredit: undefined,
+            });
+            AccountAccessor.setAccounts([testAccount]);
+            AccountAccessor.setAccessedAccount(12345678);
+        });
+
+        afterEach(() => {
+            testCredit = undefined;
+        });
+
+        it("Should call addCredit on the accessed account with the given input", () => {
+            //Arrange
+            testCredit = 100;
+
+            //Act
+            AccountAccessor.addCredit(testCredit);
+
+            //Assert
+            expect(testAccount.addCredit).toHaveBeenCalledWith(100);
         });
     });
 });
