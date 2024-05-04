@@ -114,6 +114,18 @@ describe("Account: ", () => {
                     //Assert
                     expect(testAccount.getCredit()).toBe(expected);
                 });
+
+                it("Should not change credit when more than 2 decimal places passed", () => {
+                    //Arrange
+                    testCredit = 100.555;
+
+                    //Act
+                    expected = testAccount.getCredit();
+                    testAccount.addCredit(testCredit);
+
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(expected);
+                });
             });
 
             describe("Transactions: ", () => {

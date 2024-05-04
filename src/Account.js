@@ -6,11 +6,19 @@ export default class Account {
 
     getTransactions = () => this.#transactions;
 
-    #validateNumber = (number) => typeof number === "number" && !isNaN(number);
+    #decimalPlacesValid(number) {
+        if (Number.isInteger(number)) return true;
+        return number.toString().split(".")[1].length <= 2;
+    }
+
+    #inputValid(number) {
+        if (typeof number !== "number" || isNaN(number)) return false;
+        if (!this.#decimalPlacesValid(number) || number <= 0) return false;
+        return true;
+    }
 
     addCredit(amount) {
-        if (!this.#validateNumber(amount)) return;
-        if (amount <= 0) return;
+        if (!this.#inputValid(amount)) return;
 
         this.#credit += amount;
 
@@ -21,8 +29,8 @@ export default class Account {
     }
 
     removeCredit(amount) {
-        if (!this.#validateNumber(amount)) return;
-        if (amount > this.#credit || amount <= 0) return;
+        if (!this.#inputValid(amount)) return;
+        if (amount > this.#credit) return;
 
         this.#credit -= amount;
 
