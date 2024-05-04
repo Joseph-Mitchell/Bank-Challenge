@@ -51,6 +51,19 @@ describe("Account: ", () => {
                 expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
                 expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
             });
+
+            it("Should add Transaction with correct values when decimal passed", () => {
+                //Arrange
+                testCredit = 100.55;
+
+                //Act
+                testAccount.addCredit(testCredit);
+
+                //Assert
+                let expectedDate = new Date().toLocaleDateString("en-UK");
+                expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
+                expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
+            });
         });
 
         describe("Invalid Inputs: ", () => {

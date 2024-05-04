@@ -142,7 +142,7 @@ So that I know whether the withdrawal worked.
 - [x] Should not add Transaction when non-number passed
 - [x] Should not add Transaction when NaN passed
 - [x] Should not add Transaction when undefined passed
-- [ ] Should add Transaction with correct values when decimal passed
+- [x] Should add Transaction with correct values when decimal passed
 - [ ] Should not add Transaction when more than 2 decimal places passed
 
 ### User Story 5
