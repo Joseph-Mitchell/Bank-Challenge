@@ -39,30 +39,32 @@ describe("Account: ", () => {
                 });
             });
 
-            it("Should add Transaction with correct values to transactions[] when positive number passed", () => {
-                //Arrange
-                testCredit = 100;
+            describe("Transactions: ", () => {
+                it("Should add Transaction with correct values to transactions[] when positive number passed", () => {
+                    //Arrange
+                    testCredit = 100;
 
-                //Act
-                testAccount.addCredit(testCredit);
+                    //Act
+                    testAccount.addCredit(testCredit);
 
-                //Assert
-                let expectedDate = new Date().toLocaleDateString("en-UK");
-                expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
-                expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
-            });
+                    //Assert
+                    let expectedDate = new Date().toLocaleDateString("en-UK");
+                    expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
+                    expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
+                });
 
-            it("Should add Transaction with correct values when decimal passed", () => {
-                //Arrange
-                testCredit = 100.55;
+                it("Should add Transaction with correct values when decimal passed", () => {
+                    //Arrange
+                    testCredit = 100.55;
 
-                //Act
-                testAccount.addCredit(testCredit);
+                    //Act
+                    testAccount.addCredit(testCredit);
 
-                //Assert
-                let expectedDate = new Date().toLocaleDateString("en-UK");
-                expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
-                expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
+                    //Assert
+                    let expectedDate = new Date().toLocaleDateString("en-UK");
+                    expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
+                    expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
+                });
             });
         });
 
@@ -205,6 +207,18 @@ describe("Account: ", () => {
                 it("Should not add Transaction when non-number passed", () => {
                     //Arrange
                     testCredit = undefined;
+
+                    //Act
+                    expected = testAccount.getTransactions().length;
+                    testAccount.addCredit(testCredit);
+
+                    //Assert
+                    expect(testAccount.getTransactions().length).toBe(expected);
+                });
+
+                it("Should not add Transaction when more than 2 decimal places passed", () => {
+                    //Arrange
+                    testCredit = 100.555;
 
                     //Act
                     expected = testAccount.getTransactions().length;
