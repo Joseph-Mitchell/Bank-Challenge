@@ -161,8 +161,7 @@ So that I know whether the withdrawal worked.
 ### User Story 6
 #### Testing StatementPrinter.printStatement()
 - [x] Should print transaction history to acceptance criteria standards with basic input
-- [x] Should print correctly when credit length longer than 6 characters
-- [x] Should print correctly when debit length longer than 5 characters
+- [x] Should print correctly when amount length longer than column title
 - [x] Should print correctly with amounts of differing length
 - [ ] Should print message when no Transactions in Account
 
