@@ -114,11 +114,11 @@ So that I know whether the withdrawal worked.
 - [x] Should increase credit by correct amount when amount passed is positive number
 - [x] Should not change credit when negative number passed
 - [x] Should not change credit when 0 passed
-- [ ] Should change credit when decimal passed
-- [ ] Should not change credit when more than 2 decimal places passed
 - [x] Should not change credit when non-number passed
 - [x] Should not change credit when NaN passed
 - [x] Should not change credit when undefined passed
+- [ ] Should change credit when decimal passed
+- [ ] Should not change credit when more than 2 decimal places passed
 
 ### User Story 3
 #### Testing Account.removeCredit()
@@ -127,52 +127,55 @@ So that I know whether the withdrawal worked.
 - [x] Should decrease credit by correct amount when  number equal to credit passed
 - [x] Should not change credit when negative number passed
 - [x] Should not change credit when 0 passed
-- [ ] Should change credit when decimal passed
-- [ ] Should not change credit when more than 2 decimal places passed
 - [x] Should not change credit when credit 0 and 0 passed
 - [x] Should not change credit when non-number passed
 - [x] Should not change credit when NaN passed
 - [x] Should not change credit when undefined passed
+- [ ] Should change credit when decimal passed
+- [ ] Should not change credit when more than 2 decimal places passed
 
 ### User Story 4
 #### Testing Account.addCredit()
 - [x] Should add Transaction with correct values when positive number passed
-- [ ] Should not add Transaction when negative number passed
-- [ ] Should not add Transaction when 0 passed
+- [x] Should not add Transaction when negative number passed
+- [x] Should not add Transaction when 0 passed
+- [x] Should not add Transaction when non-number passed
+- [x] Should not add Transaction when NaN passed
+- [x] Should not add Transaction when undefined passed
 - [ ] Should add Transaction with correct values when decimal passed
 - [ ] Should not add Transaction when more than 2 decimal places passed
-- [ ] Should not add Transaction when non-number passed
-- [ ] Should not add Transaction when NaN passed
-- [ ] Should not add Transaction when undefined passed
 
 ### User Story 5
 #### Testing Account.removeCredit()
-- [ ] Should add Transaction with correct values when positive number less than credit passed
-- [ ] Should not add Transaction positive number equal to credit passed
-- [ ] Should not add Transaction when negative number passed
-- [ ] Should not add Transaction when 0 passed
+- [x] Should add Transaction with correct values when positive number less than credit passed
+- [x] Should not add Transaction positive number equal to credit passed
+- [x] Should not add Transaction when negative number passed
+- [x] Should not add Transaction when 0 passed
+- [x] Should not add Transaction when credit 0 and 0 passed
+- [x] Should not add Transaction when non-number passed
+- [x] Should not add Transaction when NaN passed
+- [x] Should not add Transaction when undefined passed
 - [ ] Should add Transaction with correct values when decimal passed
 - [ ] Should not add Transaction when more than 2 decimal places passed
-- [ ] Should not add Transaction when credit 0 and 0 passed
-- [ ] Should not add Transaction when non-number passed
-- [ ] Should not add Transaction when NaN passed
-- [ ] Should not add Transaction when undefined passed
 
 ### User Story 6
 #### Testing StatementPrinter.printStatement()
-- [ ] Should print transaction history to acceptance criteria standards with basic input
-- [ ] Should print correctly when credit length longer than 6 characters
-- [ ] Should print correctly when debit length longer than 5 characters
+- [x] Should print transaction history to acceptance criteria standards with basic input
+- [x] Should print correctly when credit length longer than 6 characters
+- [x] Should print correctly when debit length longer than 5 characters
+- [ ] Should print correctly with credits of differing length
+- [ ] Should print correctly with debits of differing length
 - [ ] Should print message when no Transactions in Account
 
 ### User Story 7
 #### Testing AccountAccessor.addCredit()
-- [ ] Should print message showing credit when is positive number passed
+- [ ] Should print message showing credit when valid number passed
 - [ ] Should print message stating invalid amount when negative number passed
 - [ ] Should print message stating invalid amount when 0 passed
 - [ ] Should print message stating invalid amount when non-number passed
 - [ ] Should print message stating invalid amount when NaN passed
 - [ ] Should print message stating invalid amount when undefined passed
+- [ ] Should print message stating invalid amount when more than 2 decimal places passed
 
 ### User Story 8
 #### Testing AccountAccessor.removeCredit()
@@ -184,6 +187,7 @@ So that I know whether the withdrawal worked.
 - [ ] Should print message stating invalid amount when non-number passed
 - [ ] Should print message stating invalid amount when NaN passed
 - [ ] Should print message stating invalid amount when undefined passed
+- [ ] Should print message stating invalid amount when more than 2 decimal places passed
 
 ## Kanban Board
 ![image](../img/kanban.jpg)
