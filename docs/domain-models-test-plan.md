@@ -131,7 +131,7 @@ So that I know whether the withdrawal worked.
 - [x] Should not change credit when non-number passed
 - [x] Should not change credit when NaN passed
 - [x] Should not change credit when undefined passed
-- [ ] Should change credit when decimal passed
+- [x] Should decrease credit by correct amount when decimal passed
 - [ ] Should not change credit when more than 2 decimal places passed
 
 ### User Story 4
@@ -170,10 +170,10 @@ So that I know whether the withdrawal worked.
 - [ ] Should print message showing credit when valid number passed
 - [ ] Should print message stating invalid amount when negative number passed
 - [ ] Should print message stating invalid amount when 0 passed
+- [ ] Should print message stating invalid amount when more than 2 decimal places passed
 - [ ] Should print message stating invalid amount when non-number passed
 - [ ] Should print message stating invalid amount when NaN passed
 - [ ] Should print message stating invalid amount when undefined passed
-- [ ] Should print message stating invalid amount when more than 2 decimal places passed
 
 ### User Story 8
 #### Testing AccountAccessor.removeCredit()

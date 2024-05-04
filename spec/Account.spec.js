@@ -238,6 +238,19 @@ describe("Account: ", () => {
                     //Assert
                     expect(testAccount.getCredit()).toBe(testCredit - testDebit);
                 });
+
+                it("Should decrease credit by correct amount when decimal passed", () => {
+                    //Arrange
+                    testCredit = 200;
+                    testAccount.addCredit(testCredit);
+                    testDebit = 150.55;
+
+                    //Act
+                    testAccount.removeCredit(testDebit);
+
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(testCredit - testDebit);
+                });
             });
 
             describe("Transactions: ", () => {
