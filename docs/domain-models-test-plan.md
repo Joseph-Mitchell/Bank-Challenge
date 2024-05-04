@@ -117,7 +117,7 @@ So that I know whether the withdrawal worked.
 - [x] Should not change credit when non-number passed
 - [x] Should not change credit when NaN passed
 - [x] Should not change credit when undefined passed
-- [ ] Should change credit when decimal passed
+- [x] Should increase credit by correct amount when decimal passed
 - [ ] Should not change credit when more than 2 decimal places passed
 
 ### User Story 3

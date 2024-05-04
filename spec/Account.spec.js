@@ -15,15 +15,28 @@ describe("Account: ", () => {
 
     describe("addCredit(): ", () => {
         describe("Valid Inputs: ", () => {
-            it("Should increase credit by correct amount when amount passed is positive number", () => {
-                //Arrange
-                testCredit = 100;
+            describe("Credit: ", () => {
+                it("Should increase credit by correct amount when amount passed is positive number", () => {
+                    //Arrange
+                    testCredit = 100;
 
-                //Act
-                testAccount.addCredit(testCredit);
+                    //Act
+                    testAccount.addCredit(testCredit);
 
-                //Assert
-                expect(testAccount.getCredit()).toBe(testCredit);
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(testCredit);
+                });
+
+                it("Should increase credit by correct amount when decimal passed", () => {
+                    //Arrange
+                    testCredit = 100.55;
+
+                    //Act
+                    testAccount.addCredit(testCredit);
+
+                    //Assert
+                    expect(testAccount.getCredit()).toBe(testCredit);
+                });
             });
 
             it("Should add Transaction with correct values to transactions[] when positive number passed", () => {
