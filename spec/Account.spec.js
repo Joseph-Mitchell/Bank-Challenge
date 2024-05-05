@@ -362,6 +362,19 @@ describe("Account: ", () => {
                 //Assert
                 expect(testAccount.getTransactions().length).toBe(expected);
             });
+
+            it("Should return false with invalid input", () => {
+                //Arrange
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testCredit = -100;
+
+                //Act
+                actual = testAccount.removeCredit(testCredit);
+
+                //Assert
+                expect(actual).toBeFalse();
+            });
         });
     });
 });

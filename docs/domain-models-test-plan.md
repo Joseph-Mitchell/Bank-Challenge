@@ -168,8 +168,8 @@ So that I know whether the withdrawal worked.
 - [x] Should print message stating invalid amount when accessedAccount.removeCredit returns false
 
 #### Testing Account.removeCredit()
-- [ ] Should return true with valid input
-- [ ] Should return false with invalid input
+- [x] Should return true with valid input
+- [x] Should return false with invalid input
 
 ## Kanban Board
 ![image](../img/kanban.jpg)

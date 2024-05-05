@@ -31,8 +31,8 @@ export default class Account {
     }
 
     removeCredit(amount) {
-        if (!this.#inputValid(amount)) return;
-        if (amount > this.#credit) return;
+        if (!this.#inputValid(amount)) return false;
+        if (amount > this.#credit) return false;
 
         this.#credit -= amount;
 
