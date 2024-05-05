@@ -114,7 +114,7 @@ So that I know whether the withdrawal worked.
 - [x] Should return true when positive number passed
 - [x] Should return true when decimal passed
 - [x] Should return false when negative number passed
-- [ ] Should return false when 0 passed
+- [x] Should return false when 0 passed
 - [ ] Should return false when non-number passed
 - [ ] Should return false when NaN passed
 - [ ] Should return false when undefined passed
