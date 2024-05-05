@@ -81,6 +81,17 @@ describe("Account: ", () => {
                 //Assert
                 expect(actual).toBeFalse();
             });
+
+            it("Should return false when undefined passed", () => {
+                //Arrange
+                testCredit = undefined;
+
+                //Act
+                actual = testAccount.addCredit(testCredit);
+
+                //Assert
+                expect(actual).toBeFalse();
+            });
         });
 
         it("Should add Transaction with correct values when valid number passed", () => {
@@ -98,18 +109,6 @@ describe("Account: ", () => {
 
         describe("Invalid Inputs: ", () => {
             describe("Credit: ", () => {
-                it("Should not change credit when undefined passed", () => {
-                    //Arrange
-                    testCredit = undefined;
-
-                    //Act
-                    expected = testAccount.getCredit();
-                    testAccount.addCredit(testCredit);
-
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(expected);
-                });
-
                 it("Should not change credit when more than 2 decimal places passed", () => {
                     //Arrange
                     testCredit = 100.555;
