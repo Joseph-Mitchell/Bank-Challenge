@@ -228,6 +228,19 @@ describe("Account: ", () => {
                 expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
                 expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
             });
+
+            it("Should return true with valid input", () => {
+                //Arrange
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testCredit = 100;
+
+                //Act
+                actual = testAccount.removeCredit(testCredit);
+
+                //Assert
+                expect(actual).toBeTrue();
+            });
         });
 
         describe("Invalid Inputs: ", () => {

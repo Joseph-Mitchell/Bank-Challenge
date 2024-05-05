@@ -163,9 +163,9 @@ So that I know whether the withdrawal worked.
 
 ### User Story 8
 #### Testing AccountAccessor.removeCredit()
-- [ ] Should call removeCredit on the accessed account with the given input
-- [ ] Should print message showing credit when accessedAccount.removeCredit returns true
-- [ ] Should print message stating invalid amount when accessedAccount.removeCredit returns false
+- [x] Should call removeCredit on the accessed account with the given input
+- [x] Should print message showing credit when accessedAccount.removeCredit returns true
+- [x] Should print message stating invalid amount when accessedAccount.removeCredit returns false
 
 #### Testing Account.removeCredit()
 - [ ] Should return true with valid input

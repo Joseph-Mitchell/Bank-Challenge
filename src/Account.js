@@ -40,5 +40,7 @@ export default class Account {
             date: new Date().toLocaleDateString("en-UK"),
             amount: -amount,
         });
+
+        return true;
     }
 }
