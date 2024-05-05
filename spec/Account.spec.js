@@ -316,6 +316,19 @@ describe("Account: ", () => {
                 //Assert
                 expect(testAccount.getCredit()).toBe(testCredit - testDebit);
             });
+
+            it("Should not change credit when invalid input passed", () => {
+                //Arrange
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testDebit = 300;
+
+                //Act
+                actual = testAccount.removeCredit(testDebit);
+
+                //Assert
+                expect(testAccount.getCredit()).toBe(testCredit);
+            });
         });
 
         describe("Transactions: ", () => {

@@ -138,7 +138,7 @@ So that I know whether the withdrawal worked.
 - [x] Should return false when undefined passed
 
 - [x] Should change credit by correct amount when valid input passed
-- [ ] Should not change credit when invalid input passed
+- [x] Should not change credit when invalid input passed
 
 ### User Story 4
 #### Testing Account.addCredit()
