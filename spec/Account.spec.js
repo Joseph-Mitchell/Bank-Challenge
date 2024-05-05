@@ -303,35 +303,35 @@ describe("Account: ", () => {
             });
         });
 
-        it("Should add Transaction with correct values when valid number passed", () => {
-            //Arrange
-            testCredit = 200;
-            testAccount.addCredit(testCredit);
-            testDebit = 100;
+        describe("Account Credit: ", () => {
+            it("Should change credit by correct amount when valid input passed", () => {
+                //Arrange
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testDebit = 100;
 
-            //Act
-            testAccount.removeCredit(testDebit);
+                //Act
+                testAccount.removeCredit(testDebit);
 
-            //Assert
-            let expectedDate = new Date().toLocaleDateString("en-UK");
-            expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
-            expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
+                //Assert
+                expect(testAccount.getCredit()).toBe(testCredit - testDebit);
+            });
         });
 
-        describe("Invalid Inputs: ", () => {
-            describe("Credit: ", () => {
-                it("Should not change credit when undefined passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = undefined;
+        describe("Transactions: ", () => {
+            it("Should add Transaction with correct values when valid number passed", () => {
+                //Arrange
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testDebit = 100;
 
-                    //Act
-                    testAccount.removeCredit(testDebit);
+                //Act
+                testAccount.removeCredit(testDebit);
 
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(testCredit);
-                });
+                //Assert
+                let expectedDate = new Date().toLocaleDateString("en-UK");
+                expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
+                expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
             });
 
             it("Should not add Transaction when invalid number passed", () => {
