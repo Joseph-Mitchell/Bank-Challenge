@@ -135,7 +135,7 @@ So that I know whether the withdrawal worked.
 - [x] Should return false when credit 0 and 0 passed
 - [x] Should return false when non-number passed
 - [x] Should return false when NaN passed
-- [ ] Should return false when undefined passed
+- [x] Should return false when undefined passed
 
 - [ ] Should change credit by correct amount when valid input passed
 - [ ] Should not change credit when invalid input passed
