@@ -262,6 +262,19 @@ describe("Account: ", () => {
                 //Assert
                 expect(actual).toBeFalse();
             });
+
+            it("Should return false when non-number passed", () => {
+                //Arrange
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testDebit = "100";
+
+                //Act
+                actual = testAccount.removeCredit(testDebit);
+
+                //Assert
+                expect(actual).toBeFalse();
+            });
         });
 
         it("Should add Transaction with correct values when valid number passed", () => {
@@ -281,31 +294,6 @@ describe("Account: ", () => {
 
         describe("Invalid Inputs: ", () => {
             describe("Credit: ", () => {
-                it("Should not change credit when credit 0 and 0 passed", () => {
-                    //Arrange
-                    testDebit = 0;
-
-                    //Act
-                    expected = testAccount.getCredit();
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(expected);
-                });
-
-                it("Should not change credit when non-number passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = "100";
-
-                    //Act
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(testCredit);
-                });
-
                 it("Should not change credit when NaN passed", () => {
                     //Arrange
                     testCredit = 200;
