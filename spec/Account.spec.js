@@ -37,37 +37,34 @@ describe("Account: ", () => {
                 //Assert
                 expect(actual).toBeTrue();
             });
-        });
 
-        describe("Valid Inputs: ", () => {
-            it("Should add Transaction with correct values when valid number passed", () => {
+            it("Should return false when negative number passed", () => {
                 //Arrange
-                testCredit = 100;
+                testCredit = -100;
 
                 //Act
-                testAccount.addCredit(testCredit);
+                actual = testAccount.addCredit(testCredit);
 
                 //Assert
-                let expectedDate = new Date().toLocaleDateString("en-UK");
-                expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
-                expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
+                expect(actual).toBeFalse();
             });
+        });
+
+        it("Should add Transaction with correct values when valid number passed", () => {
+            //Arrange
+            testCredit = 100;
+
+            //Act
+            testAccount.addCredit(testCredit);
+
+            //Assert
+            let expectedDate = new Date().toLocaleDateString("en-UK");
+            expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
+            expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
         });
 
         describe("Invalid Inputs: ", () => {
             describe("Credit: ", () => {
-                it("Should not change credit when negative number passed", () => {
-                    //Arrange
-                    testCredit = -100;
-
-                    //Act
-                    expected = testAccount.getCredit();
-                    testAccount.addCredit(testCredit);
-
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(expected);
-                });
-
                 it("Should not change credit when 0 passed", () => {
                     //Arrange
                     testCredit = 0;
