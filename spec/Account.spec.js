@@ -105,29 +105,44 @@ describe("Account: ", () => {
             });
         });
 
-        it("Should add Transaction with correct values when valid number passed", () => {
-            //Arrange
-            testCredit = 100;
+        describe("Account Credit: ", () => {
+            it("Should change credit by correct amount when valid input passed", () => {
+                //Arrange
+                testCredit = 100;
 
-            //Act
-            testAccount.addCredit(testCredit);
+                //Act
+                testAccount.addCredit(testCredit);
 
-            //Assert
-            let expectedDate = new Date().toLocaleDateString("en-UK");
-            expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
-            expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
+                //Assert
+                expect(testAccount.getCredit()).toBe(testCredit);
+            });
         });
 
-        it("Should not add Transaction when invalid number passed", () => {
-            //Arrange
-            testCredit = -100;
+        describe("Transactions: ", () => {
+            it("Should add Transaction with correct values when valid number passed", () => {
+                //Arrange
+                testCredit = 100;
 
-            //Act
-            expected = testAccount.getTransactions().length;
-            testAccount.addCredit(testCredit);
+                //Act
+                testAccount.addCredit(testCredit);
 
-            //Assert
-            expect(testAccount.getTransactions().length).toBe(expected);
+                //Assert
+                let expectedDate = new Date().toLocaleDateString("en-UK");
+                expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
+                expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
+            });
+
+            it("Should not add Transaction when invalid number passed", () => {
+                //Arrange
+                testCredit = -100;
+
+                //Act
+                expected = testAccount.getTransactions().length;
+                testAccount.addCredit(testCredit);
+
+                //Assert
+                expect(testAccount.getTransactions().length).toBe(expected);
+            });
         });
     });
 
