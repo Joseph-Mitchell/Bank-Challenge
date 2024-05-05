@@ -49,9 +49,20 @@ describe("Account: ", () => {
                 expect(actual).toBeFalse();
             });
 
-            it("Should not change credit when 0 passed", () => {
+            it("Should return false when 0 passed", () => {
                 //Arrange
                 testCredit = 0;
+
+                //Act
+                actual = testAccount.addCredit(testCredit);
+
+                //Assert
+                expect(actual).toBeFalse();
+            });
+
+            it("Should return false when non-number passed", () => {
+                //Arrange
+                testCredit = "";
 
                 //Act
                 actual = testAccount.addCredit(testCredit);
