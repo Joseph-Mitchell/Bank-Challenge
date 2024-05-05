@@ -192,5 +192,18 @@ describe("AccountAccessor:", () => {
             //Assert
             expect(console.log).toHaveBeenCalledWith("Transaction successful, new balance is £100.00");
         });
+
+        it("Should print message stating invalid amount when accessedAccount.removeCredit returns false", () => {
+            //Arrange
+            testAccount.removeCredit = () => false;
+
+            //Act
+            AccountAccessor.removeCredit();
+
+            //Assert
+            expect(console.log).toHaveBeenCalledWith(
+                "Please enter a positive number with no more than two decimal places less than current balance: £100.00"
+            );
+        });
     });
 });
