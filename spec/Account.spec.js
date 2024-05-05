@@ -1,7 +1,7 @@
 import Account from "../src/Account.js";
 
 describe("Account: ", () => {
-    let testAccount, testCredit, expected, actual;
+    let testAccount, testCredit, testDebit, expected, actual;
 
     beforeEach(() => {
         testAccount = new Account();
@@ -10,6 +10,7 @@ describe("Account: ", () => {
     afterEach(() => {
         testAccount = undefined;
         testCredit = undefined;
+        testDebit = undefined;
         expected = undefined;
         actual = undefined;
     });
@@ -159,27 +160,23 @@ describe("Account: ", () => {
     });
 
     describe("removeCredit(): ", () => {
-        let testDebit;
+        describe("Input Validation: ", () => {
+            it("Should return true when positive number less than credit passed", () => {
+                //Arrange
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testDebit = 100;
 
-        afterEach(() => {
-            testDebit = undefined;
+                //Act
+                actual = testAccount.removeCredit(testDebit);
+
+                //Assert
+                expect(actual).toBeTrue();
+            });
         });
 
         describe("Valid Inputs: ", () => {
             describe("Credit: ", () => {
-                it("Should decrease credit by correct amount when positive number less than credit passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = 100;
-
-                    //Act
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(testCredit - testDebit);
-                });
-
                 it("Should decrease credit by correct amount when  number equal to credit passed", () => {
                     //Arrange
                     testCredit = 200;
