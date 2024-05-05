@@ -251,6 +251,17 @@ describe("Account: ", () => {
                 //Assert
                 expect(actual).toBeFalse();
             });
+
+            it("Should return false when credit 0 and 0 passed", () => {
+                //Arrange
+                testDebit = 0;
+
+                //Act
+                actual = testAccount.removeCredit(testDebit);
+
+                //Assert
+                expect(actual).toBeFalse();
+            });
         });
 
         it("Should add Transaction with correct values when valid number passed", () => {
