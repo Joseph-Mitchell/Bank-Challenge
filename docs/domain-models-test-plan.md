@@ -111,7 +111,7 @@ So that I know whether the withdrawal worked.
 
 ### User Story 2
 #### Testing Account.addCredit()
-- [ ] Should return true when positive number passed
+- [x] Should return true when positive number passed
 - [ ] Should return true when decimal passed
 - [ ] Should return false when negative number passed
 - [ ] Should return false when 0 passed

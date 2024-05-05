@@ -15,19 +15,21 @@ describe("Account: ", () => {
     });
 
     describe("addCredit(): ", () => {
+        describe("Input Validation: ", () => {
+            it("Should return true when positive number passed", () => {
+                //Arrange
+                testCredit = 100;
+
+                //Act
+                actual = testAccount.addCredit(testCredit);
+
+                //Assert
+                expect(actual).toBeTrue();
+            });
+        });
+
         describe("Valid Inputs: ", () => {
             describe("Credit: ", () => {
-                it("Should increase credit by correct amount when amount passed is positive number", () => {
-                    //Arrange
-                    testCredit = 100;
-
-                    //Act
-                    testAccount.addCredit(testCredit);
-
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(testCredit);
-                });
-
                 it("Should increase credit by correct amount when decimal passed", () => {
                     //Arrange
                     testCredit = 100.55;
