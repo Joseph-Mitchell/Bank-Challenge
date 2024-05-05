@@ -60,6 +60,17 @@ describe("Account: ", () => {
                 expect(actual).toBeFalse();
             });
 
+            it("Should return false when more than 2 decimal places passed", () => {
+                //Arrange
+                testCredit = 100.555;
+
+                //Act
+                actual = testAccount.addCredit(testCredit);
+
+                //Assert
+                expect(actual).toBeFalse();
+            });
+
             it("Should return false when non-number passed", () => {
                 //Arrange
                 testCredit = "";
@@ -107,32 +118,16 @@ describe("Account: ", () => {
             expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
         });
 
-        describe("Invalid Inputs: ", () => {
-            describe("Credit: ", () => {
-                it("Should not change credit when more than 2 decimal places passed", () => {
-                    //Arrange
-                    testCredit = 100.555;
+        it("Should not add Transaction when invalid number passed", () => {
+            //Arrange
+            testCredit = -100;
 
-                    //Act
-                    expected = testAccount.getCredit();
-                    testAccount.addCredit(testCredit);
+            //Act
+            expected = testAccount.getTransactions().length;
+            testAccount.addCredit(testCredit);
 
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(expected);
-                });
-            });
-
-            it("Should not add Transaction when invalid number passed", () => {
-                //Arrange
-                testCredit = -100;
-
-                //Act
-                expected = testAccount.getTransactions().length;
-                testAccount.addCredit(testCredit);
-
-                //Assert
-                expect(testAccount.getTransactions().length).toBe(expected);
-            });
+            //Assert
+            expect(testAccount.getTransactions().length).toBe(expected);
         });
     });
 
