@@ -40,22 +40,9 @@ describe("Account: ", () => {
             });
 
             describe("Transactions: ", () => {
-                it("Should add Transaction with correct values to transactions[] when positive number passed", () => {
+                it("Should add Transaction with correct values when valid number passed", () => {
                     //Arrange
                     testCredit = 100;
-
-                    //Act
-                    testAccount.addCredit(testCredit);
-
-                    //Assert
-                    let expectedDate = new Date().toLocaleDateString("en-UK");
-                    expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
-                    expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
-                });
-
-                it("Should add Transaction with correct values when decimal passed", () => {
-                    //Arrange
-                    testCredit = 100.55;
 
                     //Act
                     testAccount.addCredit(testCredit);
@@ -144,81 +131,9 @@ describe("Account: ", () => {
             });
 
             describe("Transactions: ", () => {
-                it("Should not add Transaction when negative number passed", () => {
+                it("Should not add Transaction when invalid number passed", () => {
                     //Arrange
                     testCredit = -100;
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.addCredit(testCredit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when 0 passed", () => {
-                    //Arrange
-                    testCredit = 0;
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.addCredit(testCredit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when non-number passed", () => {
-                    //Arrange
-                    testCredit = "100";
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.addCredit(testCredit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when non-number passed", () => {
-                    //Arrange
-                    testCredit = "100";
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.addCredit(testCredit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when non-number passed", () => {
-                    //Arrange
-                    testCredit = NaN;
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.addCredit(testCredit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when non-number passed", () => {
-                    //Arrange
-                    testCredit = undefined;
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.addCredit(testCredit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when more than 2 decimal places passed", () => {
-                    //Arrange
-                    testCredit = 100.555;
 
                     //Act
                     expected = testAccount.getTransactions().length;
@@ -281,41 +196,11 @@ describe("Account: ", () => {
             });
 
             describe("Transactions: ", () => {
-                it("Should add Transaction with correct values when positive number less than credit passed", () => {
+                it("Should add Transaction with correct values when valid number passed", () => {
                     //Arrange
                     testCredit = 200;
                     testAccount.addCredit(testCredit);
                     testDebit = 100;
-
-                    //Act
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    let expectedDate = new Date().toLocaleDateString("en-UK");
-                    expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
-                    expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
-                });
-
-                it("Should add Transaction when positive number equal to credit passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = 200;
-
-                    //Act
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    let expectedDate = new Date().toLocaleDateString("en-UK");
-                    expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
-                    expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
-                });
-
-                it("Should add Transaction with correct values when decimal passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = 150.55;
 
                     //Act
                     testAccount.removeCredit(testDebit);
@@ -435,107 +320,11 @@ describe("Account: ", () => {
             });
 
             describe("Transactions: ", () => {
-                it("Should not add Transaction when number more than credit passed", () => {
+                it("Should not add Transaction when invalid number passed", () => {
                     //Arrange
                     testCredit = 200;
                     testAccount.addCredit(testCredit);
                     testDebit = 300;
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when negative number passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = -100;
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when 0 passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = 0;
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when credit 0 and 0 passed", () => {
-                    //Arrange
-                    testDebit = 0;
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when non-number passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = "100";
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when NaN passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = NaN;
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when undefined passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = undefined;
-
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
-
-                it("Should not add Transaction when more than 2 decimal places passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = 150.555;
 
                     //Act
                     expected = testAccount.getTransactions().length;

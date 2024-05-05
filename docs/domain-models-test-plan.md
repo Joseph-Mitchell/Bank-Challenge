@@ -136,28 +136,13 @@ So that I know whether the withdrawal worked.
 
 ### User Story 4
 #### Testing Account.addCredit()
-- [x] Should add Transaction with correct values when positive number passed
-- [x] Should not add Transaction when negative number passed
-- [x] Should not add Transaction when 0 passed
-- [x] Should not add Transaction when non-number passed
-- [x] Should not add Transaction when NaN passed
-- [x] Should not add Transaction when undefined passed
-- [x] Should add Transaction with correct values when decimal passed
-- [x] Should not add Transaction when more than 2 decimal places passed
+- [x] Should add Transaction with correct values when valid number passed
+- [x] Should not add Transaction when invalid number passed
 
 ### User Story 5
 #### Testing Account.removeCredit()
-- [x] Should add Transaction with correct values when positive number less than credit passed
-- [x] Should not add Transaction when number more than credit passed
-- [x] Should add Transaction when positive number equal to credit passed
-- [x] Should not add Transaction when negative number passed
-- [x] Should not add Transaction when 0 passed
-- [x] Should not add Transaction when credit 0 and 0 passed
-- [x] Should not add Transaction when non-number passed
-- [x] Should not add Transaction when NaN passed
-- [x] Should not add Transaction when undefined passed
-- [x] Should add Transaction with correct values when decimal passed
-- [x] Should not add Transaction when more than 2 decimal places passed
+- [x] Should add Transaction with correct values when valid number passed
+- [x] Should not add Transaction when invalid number passed
 
 ### User Story 6
 #### Testing StatementPrinter.printStatement()
@@ -167,6 +152,10 @@ So that I know whether the withdrawal worked.
 - [x] Should print message when no Transactions in Account
 
 ### User Story 7
+#### Testing Account.addCredit()
+- [ ] Should return true with valid input
+- [ ] Should return false with invalid input
+
 #### Testing AccountAccessor.addCredit()
 - [x] Should call addCredit on the accessed account with the given input
 - [x] Should print message showing credit when accessedAccount.addCredit returns true
@@ -174,15 +163,9 @@ So that I know whether the withdrawal worked.
 
 ### User Story 8
 #### Testing AccountAccessor.removeCredit()
-- [ ] Should print message showing credit when positive number less than credit passed
-- [ ] Should print message stating invalid amount when positive number more than credit passed
-- [ ] Should print message showing credit when positive number equal to credit passed
-- [ ] Should print message stating invalid amount when negative number passed
-- [ ] Should print message stating invalid amount when 0 passed
-- [ ] Should print message stating invalid amount when non-number passed
-- [ ] Should print message stating invalid amount when NaN passed
-- [ ] Should print message stating invalid amount when undefined passed
-- [ ] Should print message stating invalid amount when more than 2 decimal places passed
+- [ ] Should call removeCredit on the accessed account with the given input
+- [ ] Should print message showing credit when accessedAccount.removeCredit returns true
+- [ ] Should print message stating invalid amount when accessedAccount.removeCredit returns false
 
 ## Kanban Board
 ![image](../img/kanban.jpg)

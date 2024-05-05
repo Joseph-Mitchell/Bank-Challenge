@@ -118,7 +118,7 @@ describe("AccountAccessor:", () => {
             spyOn(testAccount, "addCredit");
 
             //Act
-            AccountAccessor.addCredit(testCredit);
+            AccountAccessor.addCredit();
 
             //Assert
             expect(testAccount.addCredit).toHaveBeenCalledWith(100);
@@ -129,7 +129,7 @@ describe("AccountAccessor:", () => {
             testAccount.addCredit = () => true;
 
             //Act
-            AccountAccessor.addCredit(testCredit);
+            AccountAccessor.addCredit();
 
             //Assert
             expect(console.log).toHaveBeenCalledWith("Transaction successful, new balance is £100.00");
@@ -140,7 +140,7 @@ describe("AccountAccessor:", () => {
             testAccount.addCredit = () => false;
 
             //Act
-            AccountAccessor.addCredit(testCredit);
+            AccountAccessor.addCredit();
 
             //Assert
             expect(console.log).toHaveBeenCalledWith("Please enter a positive number with no more than two decimal places");
