@@ -52,17 +52,6 @@ describe("Account: ", () => {
                 expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
                 expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
             });
-
-            it("Should return true with valid input", () => {
-                //Arrange
-                testCredit = 100;
-
-                //Act
-                actual = testAccount.addCredit(testCredit);
-
-                //Assert
-                expect(actual).toBeTrue();
-            });
         });
 
         describe("Invalid Inputs: ", () => {
@@ -151,17 +140,6 @@ describe("Account: ", () => {
                 //Assert
                 expect(testAccount.getTransactions().length).toBe(expected);
             });
-
-            it("Should return false with invalid input", () => {
-                //Arrange
-                testCredit = -100;
-
-                //Act
-                actual = testAccount.addCredit(testCredit);
-
-                //Assert
-                expect(actual).toBeFalse();
-            });
         });
     });
 
@@ -227,19 +205,6 @@ describe("Account: ", () => {
                 let expectedDate = new Date().toLocaleDateString("en-UK");
                 expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
                 expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
-            });
-
-            it("Should return true with valid input", () => {
-                //Arrange
-                testCredit = 200;
-                testAccount.addCredit(testCredit);
-                testCredit = 100;
-
-                //Act
-                actual = testAccount.removeCredit(testCredit);
-
-                //Assert
-                expect(actual).toBeTrue();
             });
         });
 
@@ -361,19 +326,6 @@ describe("Account: ", () => {
 
                 //Assert
                 expect(testAccount.getTransactions().length).toBe(expected);
-            });
-
-            it("Should return false with invalid input", () => {
-                //Arrange
-                testCredit = 200;
-                testAccount.addCredit(testCredit);
-                testCredit = -100;
-
-                //Act
-                actual = testAccount.removeCredit(testCredit);
-
-                //Assert
-                expect(actual).toBeFalse();
             });
         });
     });

@@ -111,28 +111,34 @@ So that I know whether the withdrawal worked.
 
 ### User Story 2
 #### Testing Account.addCredit()
-- [x] Should increase credit by correct amount when amount passed is positive number
-- [x] Should not change credit when negative number passed
-- [x] Should not change credit when 0 passed
-- [x] Should not change credit when non-number passed
-- [x] Should not change credit when NaN passed
-- [x] Should not change credit when undefined passed
-- [x] Should increase credit by correct amount when decimal passed
-- [x] Should not change credit when more than 2 decimal places passed
+- [ ] Should return true when positive number passed
+- [ ] Should return true when decimal passed
+- [ ] Should return false when negative number passed
+- [ ] Should return false when 0 passed
+- [ ] Should return false when non-number passed
+- [ ] Should return false when NaN passed
+- [ ] Should return false when undefined passed
+- [ ] Should return false when more than 2 decimal places passed
+
+- [ ] Should change credit by correct amount when valid input passed
+- [ ] Should not change credit when invalid input passed
 
 ### User Story 3
 #### Testing Account.removeCredit()
-- [x] Should decrease credit by correct amount when positive number less than credit passed
-- [x] Should not change credit when positive number more than credit passed
-- [x] Should decrease credit by correct amount when  number equal to credit passed
-- [x] Should not change credit when negative number passed
-- [x] Should not change credit when 0 passed
-- [x] Should not change credit when credit 0 and 0 passed
-- [x] Should not change credit when non-number passed
-- [x] Should not change credit when NaN passed
-- [x] Should not change credit when undefined passed
-- [x] Should decrease credit by correct amount when decimal passed
-- [x] Should not change credit when more than 2 decimal places passed
+- [ ] Should return true when positive number less than credit passed
+- [ ] Should return true when  number equal to credit passed
+- [ ] Should return true when decimal passed
+- [ ] Should return false when positive number more than credit passed
+- [ ] Should return false when negative number passed
+- [ ] Should return false when more than 2 decimal places passed
+- [ ] Should return false when 0 passed
+- [ ] Should return false when credit 0 and 0 passed
+- [ ] Should return false when non-number passed
+- [ ] Should return false when NaN passed
+- [ ] Should return false when undefined passed
+
+- [ ] Should change credit by correct amount when valid input passed
+- [ ] Should not change credit when invalid input passed
 
 ### User Story 4
 #### Testing Account.addCredit()
@@ -157,19 +163,11 @@ So that I know whether the withdrawal worked.
 - [x] Should print message showing credit when accessedAccount.addCredit returns true
 - [x] Should print message stating invalid amount when accessedAccount.addCredit returns false
 
-#### Testing Account.addCredit()
-- [x] Should return true with valid input
-- [x] Should return false with invalid input
-
 ### User Story 8
 #### Testing AccountAccessor.removeCredit()
 - [x] Should call removeCredit on the accessed account with the given input
 - [x] Should print message showing credit when accessedAccount.removeCredit returns true
 - [x] Should print message stating invalid amount when accessedAccount.removeCredit returns false
-
-#### Testing Account.removeCredit()
-- [x] Should return true with valid input
-- [x] Should return false with invalid input
 
 ## Kanban Board
 ![image](../img/kanban.jpg)
