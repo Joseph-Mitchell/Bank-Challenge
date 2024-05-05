@@ -199,6 +199,19 @@ describe("Account: ", () => {
                 //Assert
                 expect(actual).toBeTrue();
             });
+
+            it("Should return false when positive number more than credit passed", () => {
+                //Arrange
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testDebit = 300;
+
+                //Act
+                actual = testAccount.removeCredit(testDebit);
+
+                //Assert
+                expect(actual).toBeFalse();
+            });
         });
 
         it("Should add Transaction with correct values when valid number passed", () => {
