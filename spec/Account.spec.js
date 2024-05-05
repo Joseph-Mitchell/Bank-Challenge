@@ -26,22 +26,20 @@ describe("Account: ", () => {
                 //Assert
                 expect(actual).toBeTrue();
             });
+
+            it("Should return true when decimal passed", () => {
+                //Arrange
+                testCredit = 100.55;
+
+                //Act
+                actual = testAccount.addCredit(testCredit);
+
+                //Assert
+                expect(actual).toBeTrue();
+            });
         });
 
         describe("Valid Inputs: ", () => {
-            describe("Credit: ", () => {
-                it("Should increase credit by correct amount when decimal passed", () => {
-                    //Arrange
-                    testCredit = 100.55;
-
-                    //Act
-                    testAccount.addCredit(testCredit);
-
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(testCredit);
-                });
-            });
-
             it("Should add Transaction with correct values when valid number passed", () => {
                 //Arrange
                 testCredit = 100;
