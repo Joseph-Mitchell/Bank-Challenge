@@ -39,20 +39,29 @@ describe("Account: ", () => {
                 });
             });
 
-            describe("Transactions: ", () => {
-                it("Should add Transaction with correct values when valid number passed", () => {
-                    //Arrange
-                    testCredit = 100;
+            it("Should add Transaction with correct values when valid number passed", () => {
+                //Arrange
+                testCredit = 100;
 
-                    //Act
-                    testAccount.addCredit(testCredit);
+                //Act
+                testAccount.addCredit(testCredit);
 
-                    //Assert
-                    let expectedDate = new Date().toLocaleDateString("en-UK");
-                    expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
-                    expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
-                });
+                //Assert
+                let expectedDate = new Date().toLocaleDateString("en-UK");
+                expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
+                expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
             });
+        });
+
+        it("Should return true with valid input", () => {
+            //Arrange
+            testCredit = 100;
+
+            //Act
+            let actual = testAccount.addCredit(testCredit);
+
+            //Assert
+            expect(actual).toBeTrue();
         });
 
         describe("Invalid Inputs: ", () => {

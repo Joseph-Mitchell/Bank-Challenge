@@ -152,14 +152,14 @@ So that I know whether the withdrawal worked.
 - [x] Should print message when no Transactions in Account
 
 ### User Story 7
-#### Testing Account.addCredit()
-- [ ] Should return true with valid input
-- [ ] Should return false with invalid input
-
 #### Testing AccountAccessor.addCredit()
 - [x] Should call addCredit on the accessed account with the given input
 - [x] Should print message showing credit when accessedAccount.addCredit returns true
 - [x] Should print message stating invalid amount when accessedAccount.addCredit returns false
+
+#### Testing Account.addCredit()
+- [x] Should return true with valid input
+- [ ] Should return false with invalid input
 
 ### User Story 8
 #### Testing AccountAccessor.removeCredit()
