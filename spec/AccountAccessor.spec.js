@@ -91,7 +91,7 @@ describe("AccountAccessor:", () => {
         });
     });
 
-    describe("addCredit()", () => {
+    describe("addCredit(): ", () => {
         let testAccount;
 
         beforeEach(() => {
@@ -114,11 +114,12 @@ describe("AccountAccessor:", () => {
 
         it("Should call addCredit on the accessed account with the given input", () => {
             //Arrange
+            let testCredit = 100;
             testAccount.addCredit = () => true;
             spyOn(testAccount, "addCredit");
 
             //Act
-            AccountAccessor.addCredit();
+            AccountAccessor.addCredit(testCredit);
 
             //Assert
             expect(testAccount.addCredit).toHaveBeenCalledWith(100);
