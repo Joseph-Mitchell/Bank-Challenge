@@ -213,11 +213,24 @@ describe("Account: ", () => {
                 expect(actual).toBeFalse();
             });
 
-            it("Should not change credit when negative number passed", () => {
+            it("Should return false when negative number passed", () => {
                 //Arrange
                 testCredit = 200;
                 testAccount.addCredit(testCredit);
                 testDebit = -100;
+
+                //Act
+                actual = testAccount.removeCredit(testDebit);
+
+                //Assert
+                expect(actual).toBeFalse();
+            });
+
+            it("Should return false when more than 2 decimal places passed", () => {
+                //Arrange
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testDebit = 150.555;
 
                 //Act
                 actual = testAccount.removeCredit(testDebit);
@@ -300,19 +313,6 @@ describe("Account: ", () => {
                     testCredit = 200;
                     testAccount.addCredit(testCredit);
                     testDebit = undefined;
-
-                    //Act
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(testCredit);
-                });
-
-                it("Should not change credit when more than 2 decimal places passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = 150.555;
 
                     //Act
                     testAccount.removeCredit(testDebit);

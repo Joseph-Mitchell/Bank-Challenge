@@ -130,7 +130,7 @@ So that I know whether the withdrawal worked.
 - [x] Should return true when decimal passed
 - [x] Should return false when positive number more than credit passed
 - [x] Should return false when negative number passed
-- [ ] Should return false when more than 2 decimal places passed
+- [x] Should return false when more than 2 decimal places passed
 - [ ] Should return false when 0 passed
 - [ ] Should return false when credit 0 and 0 passed
 - [ ] Should return false when non-number passed
