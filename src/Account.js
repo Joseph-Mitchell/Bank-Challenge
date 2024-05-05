@@ -1,6 +1,13 @@
 export default class Account {
+    #accountNumber;
     #credit = 0;
     #transactions = [];
+
+    constructor(accountNumber) {
+        this.#accountNumber = accountNumber;
+    }
+
+    getAccountNumber = () => this.#accountNumber;
 
     getCredit = () => this.#credit;
 
