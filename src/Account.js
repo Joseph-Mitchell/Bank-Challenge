@@ -18,7 +18,7 @@ export default class Account {
     }
 
     addCredit(amount) {
-        if (!this.#inputValid(amount)) return;
+        if (!this.#inputValid(amount)) return false;
 
         this.#credit += amount;
 

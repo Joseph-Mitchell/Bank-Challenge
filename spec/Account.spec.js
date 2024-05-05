@@ -1,7 +1,7 @@
 import Account from "../src/Account.js";
 
 describe("Account: ", () => {
-    let testAccount, testCredit, expected;
+    let testAccount, testCredit, expected, actual;
 
     beforeEach(() => {
         testAccount = new Account();
@@ -11,6 +11,7 @@ describe("Account: ", () => {
         testAccount = undefined;
         testCredit = undefined;
         expected = undefined;
+        actual = undefined;
     });
 
     describe("addCredit(): ", () => {
@@ -51,17 +52,17 @@ describe("Account: ", () => {
                 expect(testAccount.getTransactions()[0].date).toBe(expectedDate);
                 expect(testAccount.getTransactions()[0].amount).toBe(testCredit);
             });
-        });
 
-        it("Should return true with valid input", () => {
-            //Arrange
-            testCredit = 100;
+            it("Should return true with valid input", () => {
+                //Arrange
+                testCredit = 100;
 
-            //Act
-            let actual = testAccount.addCredit(testCredit);
+                //Act
+                actual = testAccount.addCredit(testCredit);
 
-            //Assert
-            expect(actual).toBeTrue();
+                //Assert
+                expect(actual).toBeTrue();
+            });
         });
 
         describe("Invalid Inputs: ", () => {
@@ -139,18 +140,27 @@ describe("Account: ", () => {
                 });
             });
 
-            describe("Transactions: ", () => {
-                it("Should not add Transaction when invalid number passed", () => {
-                    //Arrange
-                    testCredit = -100;
+            it("Should not add Transaction when invalid number passed", () => {
+                //Arrange
+                testCredit = -100;
 
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.addCredit(testCredit);
+                //Act
+                expected = testAccount.getTransactions().length;
+                testAccount.addCredit(testCredit);
 
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
+                //Assert
+                expect(testAccount.getTransactions().length).toBe(expected);
+            });
+
+            it("Should return false with invalid input", () => {
+                //Arrange
+                testCredit = -100;
+
+                //Act
+                actual = testAccount.addCredit(testCredit);
+
+                //Assert
+                expect(actual).toBeFalse();
             });
         });
     });
