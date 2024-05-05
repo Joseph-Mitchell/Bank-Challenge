@@ -116,6 +116,18 @@ describe("Account: ", () => {
                 //Assert
                 expect(testAccount.getCredit()).toBe(testCredit);
             });
+
+            it("Should not change credit when invalid input passed", () => {
+                //Arrange
+                testCredit = -100;
+
+                //Act
+                expected = testAccount.getCredit();
+                testAccount.addCredit(testCredit);
+
+                //Assert
+                expect(testAccount.getCredit()).toBe(expected);
+            });
         });
 
         describe("Transactions: ", () => {
