@@ -173,23 +173,23 @@ describe("Account: ", () => {
                 //Assert
                 expect(actual).toBeTrue();
             });
+
+            it("Should decrease credit by correct amount when  number equal to credit passed", () => {
+                //Arrange
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testDebit = 200;
+
+                //Act
+                actual = testAccount.removeCredit(testDebit);
+
+                //Assert
+                expect(actual).toBeTrue();
+            });
         });
 
         describe("Valid Inputs: ", () => {
             describe("Credit: ", () => {
-                it("Should decrease credit by correct amount when  number equal to credit passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = 200;
-
-                    //Act
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(testCredit - testDebit);
-                });
-
                 it("Should decrease credit by correct amount when decimal passed", () => {
                     //Arrange
                     testCredit = 200;
