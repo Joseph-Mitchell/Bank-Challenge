@@ -19,4 +19,14 @@ export default class AccountAccessor {
             console.log("Transaction successful, new balance is £" + this.#accessedAccount.getCredit().toFixed(2));
         else console.log("Please enter a positive number with no more than two decimal places");
     }
+
+    static removeCredit(amount) {
+        if (this.#accessedAccount.removeCredit(amount))
+            console.log("Transaction successful, new balance is £" + this.#accessedAccount.getCredit().toFixed(2));
+        else
+            console.log(
+                "Please enter a positive number with no more than two decimal places less than current balance: £" +
+                    this.#accessedAccount.getCredit().toFixed(2)
+            );
+    }
 }

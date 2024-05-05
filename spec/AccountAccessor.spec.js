@@ -147,4 +147,39 @@ describe("AccountAccessor:", () => {
             expect(console.log).toHaveBeenCalledWith("Please enter a positive number with no more than two decimal places");
         });
     });
+
+    describe("removeCredit(): ", () => {
+        let testAccount;
+
+        beforeEach(() => {
+            testAccount = {
+                getAccountNumber: () => 12345678,
+                getCredit: () => 100,
+                removeCredit: undefined,
+            };
+
+            AccountAccessor.setAccounts([testAccount]);
+            AccountAccessor.setAccessedAccount(12345678);
+
+            spyOn(console, "log");
+        });
+
+        afterEach(() => {
+            testAccount = undefined;
+            AccountAccessor.setAccounts(undefined);
+        });
+
+        it("Should call removeCredit on the accessed account with the given input", () => {
+            //Arrange
+            let testCredit = 100;
+            testAccount.removeCredit = () => true;
+            spyOn(testAccount, "removeCredit");
+
+            //Act
+            AccountAccessor.removeCredit(testCredit);
+
+            //Assert
+            expect(testAccount.removeCredit).toHaveBeenCalledWith(100);
+        });
+    });
 });

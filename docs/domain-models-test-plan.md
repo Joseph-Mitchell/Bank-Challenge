@@ -159,13 +159,17 @@ So that I know whether the withdrawal worked.
 
 #### Testing Account.addCredit()
 - [x] Should return true with valid input
-- [ ] Should return false with invalid input
+- [x] Should return false with invalid input
 
 ### User Story 8
 #### Testing AccountAccessor.removeCredit()
 - [ ] Should call removeCredit on the accessed account with the given input
 - [ ] Should print message showing credit when accessedAccount.removeCredit returns true
 - [ ] Should print message stating invalid amount when accessedAccount.removeCredit returns false
+
+#### Testing Account.removeCredit()
+- [ ] Should return true with valid input
+- [ ] Should return false with invalid input
 
 ## Kanban Board
 ![image](../img/kanban.jpg)

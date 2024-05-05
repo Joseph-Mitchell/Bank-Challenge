@@ -214,21 +214,19 @@ describe("Account: ", () => {
                 });
             });
 
-            describe("Transactions: ", () => {
-                it("Should add Transaction with correct values when valid number passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = 100;
+            it("Should add Transaction with correct values when valid number passed", () => {
+                //Arrange
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testDebit = 100;
 
-                    //Act
-                    testAccount.removeCredit(testDebit);
+                //Act
+                testAccount.removeCredit(testDebit);
 
-                    //Assert
-                    let expectedDate = new Date().toLocaleDateString("en-UK");
-                    expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
-                    expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
-                });
+                //Assert
+                let expectedDate = new Date().toLocaleDateString("en-UK");
+                expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
+                expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
             });
         });
 
@@ -338,20 +336,18 @@ describe("Account: ", () => {
                 });
             });
 
-            describe("Transactions: ", () => {
-                it("Should not add Transaction when invalid number passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = 300;
+            it("Should not add Transaction when invalid number passed", () => {
+                //Arrange
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testDebit = 300;
 
-                    //Act
-                    expected = testAccount.getTransactions().length;
-                    testAccount.removeCredit(testDebit);
+                //Act
+                expected = testAccount.getTransactions().length;
+                testAccount.removeCredit(testDebit);
 
-                    //Assert
-                    expect(testAccount.getTransactions().length).toBe(expected);
-                });
+                //Assert
+                expect(testAccount.getTransactions().length).toBe(expected);
             });
         });
     });
