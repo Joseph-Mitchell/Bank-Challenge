@@ -127,7 +127,7 @@ So that I know whether the withdrawal worked.
 #### Testing Account.removeCredit()
 - [x] Should return true when positive number less than credit passed
 - [x] Should return true when  number equal to credit passed
-- [ ] Should return true when decimal passed
+- [x] Should return true when decimal passed
 - [ ] Should return false when positive number more than credit passed
 - [ ] Should return false when negative number passed
 - [ ] Should return false when more than 2 decimal places passed

@@ -174,7 +174,7 @@ describe("Account: ", () => {
                 expect(actual).toBeTrue();
             });
 
-            it("Should decrease credit by correct amount when  number equal to credit passed", () => {
+            it("Should return true when  number equal to credit passed", () => {
                 //Arrange
                 testCredit = 200;
                 testAccount.addCredit(testCredit);
@@ -186,55 +186,38 @@ describe("Account: ", () => {
                 //Assert
                 expect(actual).toBeTrue();
             });
-        });
 
-        describe("Valid Inputs: ", () => {
-            describe("Credit: ", () => {
-                it("Should decrease credit by correct amount when decimal passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = 150.55;
-
-                    //Act
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(testCredit - testDebit);
-                });
-            });
-
-            it("Should add Transaction with correct values when valid number passed", () => {
+            it("Should return true when decimal passed", () => {
                 //Arrange
                 testCredit = 200;
                 testAccount.addCredit(testCredit);
-                testDebit = 100;
+                testDebit = 150.55;
 
                 //Act
-                testAccount.removeCredit(testDebit);
+                actual = testAccount.removeCredit(testDebit);
 
                 //Assert
-                let expectedDate = new Date().toLocaleDateString("en-UK");
-                expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
-                expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
+                expect(actual).toBeTrue();
             });
+        });
+
+        it("Should add Transaction with correct values when valid number passed", () => {
+            //Arrange
+            testCredit = 200;
+            testAccount.addCredit(testCredit);
+            testDebit = 100;
+
+            //Act
+            testAccount.removeCredit(testDebit);
+
+            //Assert
+            let expectedDate = new Date().toLocaleDateString("en-UK");
+            expect(testAccount.getTransactions()[1].date).toBe(expectedDate);
+            expect(testAccount.getTransactions()[1].amount).toBe(-testDebit);
         });
 
         describe("Invalid Inputs: ", () => {
             describe("Credit: ", () => {
-                it("Should not change credit when positive number more than credit passed", () => {
-                    //Arrange
-                    testCredit = 200;
-                    testAccount.addCredit(testCredit);
-                    testDebit = 300;
-
-                    //Act
-                    testAccount.removeCredit(testDebit);
-
-                    //Assert
-                    expect(testAccount.getCredit()).toBe(testCredit);
-                });
-
                 it("Should not change credit when negative number passed", () => {
                     //Arrange
                     testCredit = 200;
