@@ -181,5 +181,16 @@ describe("AccountAccessor:", () => {
             //Assert
             expect(testAccount.removeCredit).toHaveBeenCalledWith(100);
         });
+
+        it("Should print message showing credit when accessedAccount.removeCredit returns true", () => {
+            //Arrange
+            testAccount.removeCredit = () => true;
+
+            //Act
+            AccountAccessor.removeCredit();
+
+            //Assert
+            expect(console.log).toHaveBeenCalledWith("Transaction successful, new balance is £100.00");
+        });
     });
 });
