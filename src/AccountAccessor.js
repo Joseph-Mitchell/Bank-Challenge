@@ -15,7 +15,8 @@ export default class AccountAccessor {
     }
 
     static addCredit(amount) {
-        this.#accessedAccount.addCredit(amount);
-        console.log("Transaction successful, new balance is £" + this.#accessedAccount.getCredit().toFixed(2));
+        if (this.#accessedAccount.addCredit(amount))
+            console.log("Transaction successful, new balance is £" + this.#accessedAccount.getCredit().toFixed(2));
+        else console.log("Please enter a positive number with no more than two decimal places");
     }
 }

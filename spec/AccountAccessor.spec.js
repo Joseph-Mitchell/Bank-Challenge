@@ -92,15 +92,15 @@ describe("AccountAccessor:", () => {
     });
 
     describe("addCredit()", () => {
-        let testCredit, testAccount;
+        let testAccount;
 
         beforeEach(() => {
-            testCredit = 100;
-            testAccount = jasmine.createSpyObj("testAccount", {
-                getAccountNumber: 12345678,
-                getCredit: 100,
+            testAccount = {
+                getAccountNumber: () => 12345678,
+                getCredit: () => 100,
                 addCredit: undefined,
-            });
+            };
+
             AccountAccessor.setAccounts([testAccount]);
             AccountAccessor.setAccessedAccount(12345678);
 
@@ -108,12 +108,15 @@ describe("AccountAccessor:", () => {
         });
 
         afterEach(() => {
-            testCredit = undefined;
             testAccount = undefined;
             AccountAccessor.setAccounts(undefined);
         });
 
         it("Should call addCredit on the accessed account with the given input", () => {
+            //Arrange
+            testAccount.addCredit = () => true;
+            spyOn(testAccount, "addCredit");
+
             //Act
             AccountAccessor.addCredit(testCredit);
 
@@ -121,12 +124,26 @@ describe("AccountAccessor:", () => {
             expect(testAccount.addCredit).toHaveBeenCalledWith(100);
         });
 
-        it("Should print message showing credit when is positive number passed", () => {
+        it("Should print message showing credit when accessedAccount.addCredit returns true", () => {
+            //Arrange
+            testAccount.addCredit = () => true;
+
             //Act
             AccountAccessor.addCredit(testCredit);
 
             //Assert
             expect(console.log).toHaveBeenCalledWith("Transaction successful, new balance is £100.00");
+        });
+
+        it("Should print message stating invalid amount when accessedAccount.addCredit returns false", () => {
+            //Arrange
+            testAccount.addCredit = () => false;
+
+            //Act
+            AccountAccessor.addCredit(testCredit);
+
+            //Assert
+            expect(console.log).toHaveBeenCalledWith("Please enter a positive number with no more than two decimal places");
         });
     });
 });
