@@ -1,6 +1,7 @@
 # Benefits Analysis
 ## Problem
-If customers want to access their bank account they need to come into the bank and talk to a bank teller to make requests.<br><br>
+If customers want to access their bank account they need to come into the bank and talk to a bank teller to make requests.
+<br><br>
 This can be inconvenient for many reasons, for instance most of any customers' free time will lie outside of bank opening hours, forcing them to visit the bank in a very short window of time which may not be comfortable or possible for them. Additionally, bank holidays and other variables affecting bank opening hours may further cause inconvenience to customers.<br><br>
 The program fixes this issue by providing an automated banking service for customers to withdraw and deposit money, as well as to view a statement of previous transactions. This system would be available any hour of the day as due to being automated it does not need to be operated by a person.
 
