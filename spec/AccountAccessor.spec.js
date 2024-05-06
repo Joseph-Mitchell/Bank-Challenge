@@ -153,6 +153,7 @@ describe("AccountAccessor:", () => {
 
         beforeEach(() => {
             testAccount = {
+                getOverdraft: () => 0,
                 getAccountNumber: () => 12345678,
                 getCredit: () => 100,
                 removeCredit: undefined,

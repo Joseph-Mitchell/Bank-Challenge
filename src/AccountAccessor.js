@@ -30,7 +30,7 @@ export default class AccountAccessor {
 
         if (this.#accessedAccount.getOverdraft() === 0)
             return console.log(
-                "Please enter a positive number with no more than two decimal places less than current balance £:" +
+                "Please enter a positive number with no more than two decimal places less than current balance: £" +
                     this.#accessedAccount.getCredit().toFixed(2)
             );
 
