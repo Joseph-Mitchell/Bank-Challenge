@@ -202,7 +202,7 @@ So that I can more easily digest the information.
 
 - [x] Should return true when positive number passed
 - [x] Should return true when 0 passed
-- [ ] Should return true when decimal passed
+- [x] Should return true when decimal passed
 - [ ] Should return false when negative number passed
 - [ ] Should return false when non-number passed
 

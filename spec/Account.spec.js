@@ -38,6 +38,17 @@ describe("Account: ", () => {
                 //Assert
                 expect(actual).toBeTrue();
             });
+
+            it("Should return true when decimal passed", () => {
+                //Arrange
+                testOverdraft = 100.55;
+
+                //Act
+                actual = testAccount.setOverdraft(testOverdraft);
+
+                //Assert
+                expect(actual).toBeTrue();
+            });
         });
     });
 
