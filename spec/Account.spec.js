@@ -340,11 +340,28 @@ describe("Account: ", () => {
                 expect(actual).toBeTrue();
             });
 
-            xit("Should return false when positive number more than credit passed", () => {
+            it("Should return false when positive number more than credit passed", () => {
                 //Arrange
                 testCredit = 200;
                 testAccount.addCredit(testCredit);
                 testDebit = 300;
+
+                //Act
+                actual = testAccount.removeCredit(testDebit);
+
+                //Assert
+                expect(actual).toBeFalse();
+            });
+
+            it("Should return false when positive number more than credit plus overdraft passed", () => {
+                //Arrange
+                testOverdraft = 100;
+                testAccount.setOverdraft(testOverdraft);
+
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+
+                testDebit = 400;
 
                 //Act
                 actual = testAccount.removeCredit(testDebit);
