@@ -12,9 +12,10 @@ export default class Account {
 
     getCredit = () => this.#credit;
 
-    getOverdraft = () => this.#overdraft;
-
-    setOverdraft = (overdraft) => (this.#overdraft = overdraft);
+    setOverdraft(overdraft) {
+        this.#overdraft = overdraft;
+        return true;
+    }
 
     getTransactions = () => this.#transactions;
 

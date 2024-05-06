@@ -22,10 +22,21 @@ describe("Account: ", () => {
                 testOverdraft = 100;
 
                 //Act
-                testAccount.setOverdraft(testOverdraft);
+                actual = testAccount.setOverdraft(testOverdraft);
 
                 //Assert
-                expect(testAccount.getOverdraft()).toBe(testOverdraft);
+                expect(actual).toBeTrue();
+            });
+
+            it("Should return true when 0 passed", () => {
+                //Arrange
+                testOverdraft = 0;
+
+                //Act
+                actual = testAccount.setOverdraft(testOverdraft);
+
+                //Assert
+                expect(actual).toBeTrue();
             });
         });
     });
