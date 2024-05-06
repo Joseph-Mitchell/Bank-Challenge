@@ -106,6 +106,18 @@ describe("Account: ", () => {
                 //Assert
                 expect(testAccount.getOverdraft()).toBe(100);
             });
+
+            it("Should not change overdraft when invalid input passed", () => {
+                //Arrange
+                testOverdraft = -100;
+
+                //Act
+                expected = testAccount.getOverdraft();
+                testAccount.setOverdraft(testOverdraft);
+
+                //Assert
+                expect(testAccount.getOverdraft()).toBe(expected);
+            });
         });
     });
 

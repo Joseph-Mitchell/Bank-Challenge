@@ -209,7 +209,7 @@ So that I can more easily digest the information.
 - [x] Should return false when undefined passed
 
 - [x] Should set overdraft to correct amount when valid input passed
-- [ ] Should not change overdraft when invalid input passed
+- [x] Should not change overdraft when invalid input passed
 
 #### Testing Account.removeCredit()
 
