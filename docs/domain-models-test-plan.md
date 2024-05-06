@@ -218,6 +218,8 @@ So that I can more easily digest the information.
 - [x] Should return true when number equal to credit plus overdraft passed
 - [x] Should return false when positive number more than credit plus overdraft passed
 
+- [x] Should change credit by correct amount when number between credit and overdraft passed
+
 ### User Story 10
 #### Testing StatementPrinter.printStatement()
 

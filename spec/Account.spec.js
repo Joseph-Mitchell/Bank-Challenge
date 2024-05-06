@@ -474,6 +474,22 @@ describe("Account: ", () => {
                 expect(testAccount.getCredit()).toBe(testCredit - testDebit);
             });
 
+            it("Should change credit by correct amount when number between credit and overdraft passed", () => {
+                //Arrange
+                testOverdraft = 100;
+                testAccount.setOverdraft(testOverdraft);
+
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testDebit = 250;
+
+                //Act
+                testAccount.removeCredit(testDebit);
+
+                //Assert
+                expect(testAccount.getCredit()).toBe(testCredit - testDebit);
+            });
+
             it("Should not change credit when invalid input passed", () => {
                 //Arrange
                 testCredit = 200;
