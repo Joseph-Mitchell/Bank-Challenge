@@ -224,3 +224,4 @@ So that I can more easily digest the information.
 #### Testing StatementPrinter.printStatement()
 
 - [x] Should print transaction history to acceptance criteria with coloured highlights with basic input
+- [x] Should print statement correctly with negative balances

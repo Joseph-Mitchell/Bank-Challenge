@@ -25,7 +25,7 @@ describe("Statement Printer: ", () => {
             );
         });
 
-        it("Should print correctly when credit length longer than 6 characters", () => {
+        it("Should print correctly when amount lengths longer than column title", () => {
             //Arrange
             let testAccount = jasmine.createSpyObj("testAccount", {
                 getTransactions: [
@@ -45,6 +45,31 @@ describe("Statement Printer: ", () => {
                     "14/01/2012 || \x1b[32m       \x1b[0m || \x1b[31m500.00\x1b[0m || \x1b[32m2500.00\x1b[0m\n" +
                     "13/01/2012 || \x1b[32m2000.00\x1b[0m || \x1b[31m      \x1b[0m || \x1b[32m3000.00\x1b[0m\n" +
                     "10/01/2012 || \x1b[32m1000.00\x1b[0m || \x1b[31m      \x1b[0m || \x1b[32m1000.00\x1b[0m\n"
+            );
+        });
+
+        it("Should print statement correctly with negative balances", () => {
+            //Arrange
+            let testAccount = jasmine.createSpyObj("testAccount", {
+                getTransactions: [
+                    { date: "10/01/2012", amount: 1000 },
+                    { date: "13/01/2012", amount: 2000 },
+                    { date: "14/01/2012", amount: -500 },
+                    { date: "15/01/2012", amount: -3500 },
+                ],
+            });
+            spyOn(console, "log");
+
+            //Act
+            StatementPrinter.printStatement(testAccount.getTransactions());
+
+            //Assert
+            expect(console.log).toHaveBeenCalledWith(
+                "\ndate       || credit  || debit   || balance\n" +
+                    "15/01/2012 || \x1b[32m       \x1b[0m || \x1b[31m3500.00\x1b[0m || \x1b[31m-1000.00\x1b[0m\n" +
+                    "14/01/2012 || \x1b[32m       \x1b[0m || \x1b[31m500.00 \x1b[0m || \x1b[32m2500.00\x1b[0m\n" +
+                    "13/01/2012 || \x1b[32m2000.00\x1b[0m || \x1b[31m       \x1b[0m || \x1b[32m3000.00\x1b[0m\n" +
+                    "10/01/2012 || \x1b[32m1000.00\x1b[0m || \x1b[31m       \x1b[0m || \x1b[32m1000.00\x1b[0m\n"
             );
         });
 
