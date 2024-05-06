@@ -203,7 +203,7 @@ So that I can more easily digest the information.
 - [x] Should return true when positive number passed
 - [x] Should return true when 0 passed
 - [x] Should return true when decimal passed
-- [ ] Should return false when negative number passed
+- [x] Should return false when negative number passed
 - [ ] Should return false when non-number passed
 
 - [ ] Should set overdraft to correct amount when valid input passed

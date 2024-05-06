@@ -49,6 +49,17 @@ describe("Account: ", () => {
                 //Assert
                 expect(actual).toBeTrue();
             });
+
+            it("Should return false when negative number passed", () => {
+                //Arrange
+                testOverdraft = -100;
+
+                //Act
+                actual = testAccount.setOverdraft(testOverdraft);
+
+                //Assert
+                expect(actual).toBeFalse();
+            });
         });
     });
 

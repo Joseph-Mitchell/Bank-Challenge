@@ -13,6 +13,8 @@ export default class Account {
     getCredit = () => this.#credit;
 
     setOverdraft(overdraft) {
+        if (overdraft < 0) return false;
+
         this.#overdraft = overdraft;
         return true;
     }
