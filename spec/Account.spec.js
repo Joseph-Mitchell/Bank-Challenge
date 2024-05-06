@@ -94,6 +94,19 @@ describe("Account: ", () => {
                 expect(actual).toBeFalse();
             });
         });
+
+        describe("Overdraft", () => {
+            it("Should set overdraft to correct amount when valid input passed", () => {
+                //Arrange
+                testOverdraft = 100;
+
+                //Act
+                testAccount.setOverdraft(testOverdraft);
+
+                //Assert
+                expect(testAccount.getOverdraft()).toBe(100);
+            });
+        });
     });
 
     describe("addCredit(): ", () => {
@@ -187,7 +200,7 @@ describe("Account: ", () => {
             });
         });
 
-        describe("Account Credit: ", () => {
+        describe("Credit: ", () => {
             it("Should change credit by correct amount when valid input passed", () => {
                 //Arrange
                 testCredit = 100;
@@ -384,7 +397,7 @@ describe("Account: ", () => {
             });
         });
 
-        describe("Account Credit: ", () => {
+        describe("Credit: ", () => {
             it("Should change credit by correct amount when valid input passed", () => {
                 //Arrange
                 testCredit = 200;

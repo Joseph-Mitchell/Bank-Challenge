@@ -23,6 +23,8 @@ export default class Account {
 
     getCredit = () => this.#credit;
 
+    getOverdraft = () => this.#overdraft;
+
     setOverdraft(amount) {
         if (!this.#inputValid(amount) || amount < 0) return false;
 
