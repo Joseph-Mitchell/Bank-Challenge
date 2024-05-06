@@ -8,19 +8,6 @@ export default class Account {
         this.#accountNumber = accountNumber;
     }
 
-    getAccountNumber = () => this.#accountNumber;
-
-    getCredit = () => this.#credit;
-
-    setOverdraft(overdraft) {
-        if (overdraft < 0) return false;
-
-        this.#overdraft = overdraft;
-        return true;
-    }
-
-    getTransactions = () => this.#transactions;
-
     #decimalPlacesValid(number) {
         if (Number.isInteger(number)) return true;
         return number.toString().split(".")[1].length <= 2;
@@ -28,12 +15,25 @@ export default class Account {
 
     #inputValid(number) {
         if (typeof number !== "number" || isNaN(number)) return false;
-        if (!this.#decimalPlacesValid(number) || number <= 0) return false;
+        if (!this.#decimalPlacesValid(number)) return false;
         return true;
     }
 
+    getAccountNumber = () => this.#accountNumber;
+
+    getCredit = () => this.#credit;
+
+    setOverdraft(amount) {
+        if (!this.#inputValid(amount) || amount < 0) return false;
+
+        this.#overdraft = amount;
+        return true;
+    }
+
+    getTransactions = () => this.#transactions;
+
     addCredit(amount) {
-        if (!this.#inputValid(amount)) return false;
+        if (!this.#inputValid(amount) || amount <= 0) return false;
 
         this.#credit += amount;
 
@@ -46,7 +46,7 @@ export default class Account {
     }
 
     removeCredit(amount) {
-        if (!this.#inputValid(amount)) return false;
+        if (!this.#inputValid(amount) || amount <= 0) return false;
         if (amount > this.#credit) return false;
 
         this.#credit -= amount;

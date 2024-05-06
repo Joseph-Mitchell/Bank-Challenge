@@ -60,6 +60,17 @@ describe("Account: ", () => {
                 //Assert
                 expect(actual).toBeFalse();
             });
+
+            it("Should return false when non-number passed", () => {
+                //Arrange
+                testOverdraft = "100";
+
+                //Act
+                actual = testAccount.setOverdraft(testOverdraft);
+
+                //Assert
+                expect(actual).toBeFalse();
+            });
         });
     });
 
