@@ -71,6 +71,17 @@ describe("Account: ", () => {
                 //Assert
                 expect(actual).toBeFalse();
             });
+
+            it("Should return false when NaN passed", () => {
+                //Arrange
+                testOverdraft = NaN;
+
+                //Act
+                actual = testAccount.setOverdraft(testOverdraft);
+
+                //Assert
+                expect(actual).toBeFalse();
+            });
         });
     });
 
