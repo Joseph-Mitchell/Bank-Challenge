@@ -49,7 +49,7 @@ export default class Account {
 
     removeCredit(amount) {
         if (!this.#inputValid(amount) || amount <= 0) return false;
-        if (amount > this.#credit) return false;
+        if (amount > this.#credit + this.#overdraft) return false;
 
         this.#credit -= amount;
 

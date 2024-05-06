@@ -271,7 +271,25 @@ describe("Account: ", () => {
                 //Arrange
                 testCredit = 200;
                 testAccount.addCredit(testCredit);
+
                 testDebit = 100;
+
+                //Act
+                actual = testAccount.removeCredit(testDebit);
+
+                //Assert
+                expect(actual).toBeTrue();
+            });
+
+            it("Should return true when positive number less than credit plus overdraft passed", () => {
+                //Arrange
+                testOverdraft = 100;
+                testAccount.setOverdraft(testOverdraft);
+
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+
+                testDebit = 250;
 
                 //Act
                 actual = testAccount.removeCredit(testDebit);
