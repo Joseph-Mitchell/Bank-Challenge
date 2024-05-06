@@ -206,7 +206,7 @@ So that I can more easily digest the information.
 - [x] Should return false when negative number passed
 - [x] Should return false when non-number passed
 - [x] Should return false when NaN passed
-- [ ] Should return false when undefined passed
+- [x] Should return false when undefined passed
 
 - [ ] Should set overdraft to correct amount when valid input passed
 - [ ] Should not change overdraft when invalid input passed
