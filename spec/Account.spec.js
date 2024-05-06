@@ -1,7 +1,7 @@
 import Account from "../src/Account.js";
 
 describe("Account: ", () => {
-    let testAccount, testCredit, testDebit, expected, actual;
+    let testAccount, testCredit, testDebit, testOverdraft, expected, actual;
 
     beforeEach(() => {
         testAccount = new Account();
@@ -13,6 +13,21 @@ describe("Account: ", () => {
         testDebit = undefined;
         expected = undefined;
         actual = undefined;
+    });
+
+    describe("setOverdraft(): ", () => {
+        describe("Input Validation: ", () => {
+            it("Should return true when positive number passed", () => {
+                //Arrange
+                testOverdraft = 100;
+
+                //Act
+                testAccount.setOverdraft(testOverdraft);
+
+                //Assert
+                expect(testAccount.getOverdraft()).toBe(testOverdraft);
+            });
+        });
     });
 
     describe("addCredit(): ", () => {

@@ -1,6 +1,7 @@
 export default class Account {
     #accountNumber;
     #credit = 0;
+    #overdraft = 0;
     #transactions = [];
 
     constructor(accountNumber) {
@@ -10,6 +11,10 @@ export default class Account {
     getAccountNumber = () => this.#accountNumber;
 
     getCredit = () => this.#credit;
+
+    getOverdraft = () => this.#overdraft;
+
+    setOverdraft = (overdraft) => (this.#overdraft = overdraft);
 
     getTransactions = () => this.#transactions;
 
