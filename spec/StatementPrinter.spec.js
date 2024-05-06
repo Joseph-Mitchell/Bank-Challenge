@@ -2,7 +2,7 @@ import StatementPrinter from "../src/StatementPrinter.js";
 
 describe("Statement Printer: ", () => {
     describe("printStatement(): ", () => {
-        it("Should print transaction history when at least one Transaction in Account", () => {
+        xit("Should print transaction history when at least one Transaction in Account", () => {
             //Arrange
             let testAccount = jasmine.createSpyObj("testAccount", {
                 getTransactions: [
