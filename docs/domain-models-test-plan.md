@@ -223,4 +223,4 @@ So that I can more easily digest the information.
 ### User Story 10
 #### Testing StatementPrinter.printStatement()
 
-- [ ] Should print transaction history to acceptance criteria with coloured highlights with basic input
+- [x] Should print transaction history to acceptance criteria with coloured highlights with basic input

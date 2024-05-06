@@ -13,13 +13,22 @@ export default class StatementPrinter {
         let creditString = amount > 0 ? amountString : "";
         let debitString = amount > 0 ? "" : amountString;
 
-        return creditString.padEnd(this.#creditWidth, " ") + " || " + debitString.padEnd(this.#debitWidth, " ") + " || ";
+        return (
+            "\x1b[32m" + //Make following text green
+            creditString.padEnd(this.#creditWidth, " ") +
+            "\x1b[0m || \x1b[31m" + //Reset color, then make following text red
+            debitString.padEnd(this.#debitWidth, " ") +
+            "\x1b[0m || " //Reset color
+        );
     }
 
     static #constructEachLine(transaction) {
         let line = transaction.date + " || ";
         line += this.#constructCreditAndDebit(transaction.amount);
-        line += (this.#totalBalance += transaction.amount).toFixed(2);
+
+        this.#totalBalance += transaction.amount;
+        let colorCode = this.#totalBalance >= 0 ? "\x1b[32m" : "\x1b[31m";
+        line += colorCode + this.#totalBalance.toFixed(2) + "\x1b[0m";
 
         return line;
     }
