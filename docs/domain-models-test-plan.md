@@ -214,7 +214,7 @@ So that I can more easily digest the information.
 #### Testing Account.removeCredit()
 
 - [x] Should return true when positive number less than credit plus overdraft passed
-- [ ] Should return true when number equal to credit plus overdraft passed
+- [x] Should return true when number equal to credit plus overdraft passed
 - [ ] Should return false when positive number more than credit plus overdraft passed
 
 ### User Story 10

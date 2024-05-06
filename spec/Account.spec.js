@@ -298,11 +298,27 @@ describe("Account: ", () => {
                 expect(actual).toBeTrue();
             });
 
-            it("Should return true when  number equal to credit passed", () => {
+            it("Should return true when number equal to credit passed", () => {
                 //Arrange
                 testCredit = 200;
                 testAccount.addCredit(testCredit);
                 testDebit = 200;
+
+                //Act
+                actual = testAccount.removeCredit(testDebit);
+
+                //Assert
+                expect(actual).toBeTrue();
+            });
+
+            it("Should return true when number equal to credit plus overdraft passed", () => {
+                //Arrange
+                testOverdraft = 100;
+                testAccount.setOverdraft(testOverdraft);
+
+                testCredit = 200;
+                testAccount.addCredit(testCredit);
+                testDebit = 300;
 
                 //Act
                 actual = testAccount.removeCredit(testDebit);
