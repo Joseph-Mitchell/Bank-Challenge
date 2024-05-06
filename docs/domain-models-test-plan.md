@@ -219,6 +219,3 @@ So that I can more easily digest the information.
 #### Testing StatementPrinter.printStatement()
 
 - [ ] Should print transaction history to acceptance criteria with coloured highlights with basic input
-
-## Kanban Board
-![image](../img/kanban.jpg)
